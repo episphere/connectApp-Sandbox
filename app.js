@@ -24,7 +24,11 @@ window.onload = async () => {
     auth = firebase.auth();
     if('serviceWorker' in navigator){
         try {
-            navigator.serviceWorker.register('./serviceWorker.js');
+            navigator.serviceWorker.register('./serviceWorker.js')
+            .then((registration) => {
+                const messaging = firebase.messaging();
+                messaging.useServiceWorker(registration);
+              });
         }
         catch (error) {
             console.log(error);

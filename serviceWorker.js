@@ -1,4 +1,26 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-messaging.js');
+
+firebase.initializeApp({
+    apiKey: "AIzaSyDe3Ewzl4x7hEX30EiQJ0tvXBtzd2Hghiw",
+    authDomain: "nih-nci-dceg-episphere-dev.firebaseapp.com",
+    projectId: "nih-nci-dceg-episphere-dev",
+    storageBucket: "nih-nci-dceg-episphere-dev.appspot.com",
+    messagingSenderId: "1061219778575",
+    appId: "1:1061219778575:web:c9f40bbc7ec2cdccc5637a"
+});
+
+const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(payload => {
+    const notificationTitle = payload.notification.title;
+    const notificationOptions = {
+        body: payload.notification.body,
+        icon: payload.notification.icon,
+        vibrate: [100, 50, 100]
+    };
+    return self.registration.showNotification(notificationTitle, notificationOptions);
+})
 
 const { registerRoute } = workbox.routing;
 const { CacheFirst, NetworkFirst, StaleWhileRevalidate, NetworkOnly } = workbox.strategies;
@@ -46,4 +68,4 @@ registerRoute(
     'POST'
 );
 
-workbox.precaching.precacheAndRoute([{url: 'index.html', revision: '1590505867650'}]);
+workbox.precaching.precacheAndRoute([{url: 'index.html', revision: '1590515232063'}]);

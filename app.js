@@ -179,7 +179,7 @@ const userProfile = () => {
             window.history.replaceState({},'', './#dashboard');
             const myData = await getMyData();
             if(myData.code === 200) {
-                // connectPushNotification();
+                connectPushNotification();
                 myToDoList(myData.data);
             }
             else {
@@ -204,7 +204,7 @@ const toggleNavBar = () => {
         if(user){
             document.getElementById('navbarNavAltMarkup').innerHTML = userNavBar();
             document.getElementById('joinNow') ? document.getElementById('joinNow').innerHTML = joinNowBtn(false) : ``;
-            // addEventRetrieveNotifications();
+            addEventRetrieveNotifications();
         }
         else{
             document.getElementById('navbarNavAltMarkup').innerHTML = homeNavBar();

@@ -3,7 +3,8 @@ import { transform } from 'https://episphere.github.io/quest/replace2.js';
 
 export const questionnaire = () => {
     transform.render({
-        url: 'https://jonasalmeida.github.io/privatequest/demo2.txt&run',
+        url: 'https://jonasalmeida.github.io/privatequest/demo2.txt',
+        activate: true,
         store: storeResponse,
         retrieve: getMyData
     }, 'root');

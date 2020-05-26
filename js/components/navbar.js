@@ -27,6 +27,11 @@ export const userNavBar = () => {
         </div>
         <div class="navbar-nav">
             <li class="nav-item">
+                <button class="nav-link" id="retrieveNotifications" data-toggle="modal" data-target="#notificationsModal" title="View Notification"><i class="fas fa-bell"></i> Notifications</button>
+            </li>
+        </div>
+        <div class="navbar-nav">
+            <li class="nav-item">
                 <a class="nav-link" href="#support" id="connectSupport"><i class="fas fa-headset"></i> Support</a>
             </li>
         </div>

@@ -24,8 +24,7 @@ window.onload = async () => {
     auth = firebase.auth();
     if('serviceWorker' in navigator){
         try {
-            navigator.serviceWorker.register('./serviceWorker.js')
-            navigator.serviceWorker.register('./firebase-messaging-sw.js')
+            navigator.serviceWorker.register('./serviceWorker.js');
         }
         catch (error) {
             console.log(error);

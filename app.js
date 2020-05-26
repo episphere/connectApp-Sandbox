@@ -25,6 +25,7 @@ window.onload = async () => {
     if('serviceWorker' in navigator){
         try {
             navigator.serviceWorker.register('./serviceWorker.js')
+            navigator.serviceWorker.register('./firebase-messaging-sw.js')
         }
         catch (error) {
             console.log(error);

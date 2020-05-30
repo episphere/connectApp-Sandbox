@@ -3,7 +3,7 @@ import { userNavBar, homeNavBar } from "./js/components/navbar.js";
 import { homePage, joinNowBtn } from "./js/pages/homePage.js";
 import { signIn } from "./js/pages/signIn.js";
 import { firebaseConfig } from "./js/config.js";
-import { addEventRequestPINForm, addEventRetrieveNotifications, retrieveNotificationsInBackgroound } from "./js/event.js";
+import { addEventRequestPINForm, addEventRetrieveNotifications, retrieveNotificationsInBackgroound, toggleCurrentPage } from "./js/event.js";
 import { requestPINTemplate } from "./js/pages/healthCareProvider.js";
 import { myToDoList } from "./js/pages/myToDoList.js";
 import { renderAgreements } from "./js/pages/agreements.js";
@@ -137,8 +137,8 @@ const router = async () => {
     if(parameters && parameters.token && await userLoggedIn() === false){
         window.location.hash = '#sign_in';
     }
-    toggleNavBar();
     const route =  window.location.hash || '#';
+    toggleNavBar(route);
     if(route === '#') homePage();
     else if (route === '#sign_in' && await userLoggedIn() === false) signIn();
     else if (route === '#dashboard') userProfile();
@@ -203,23 +203,17 @@ const signOut = () => {
     window.location.hash = '#';
 }
 
-const toggleNavBar = () => {
+const toggleNavBar = (route) => {
     auth.onAuthStateChanged(user => {
         if(user){
             document.getElementById('navbarNavAltMarkup').innerHTML = userNavBar();
             document.getElementById('joinNow') ? document.getElementById('joinNow').innerHTML = joinNowBtn(false) : ``;
             addEventRetrieveNotifications();
+            toggleCurrentPage(route);
         }
         else{
             document.getElementById('navbarNavAltMarkup').innerHTML = homeNavBar();
             document.getElementById('joinNow') ? document.getElementById('joinNow').innerHTML = joinNowBtn(true) : ``;
         }
-    });
-}
-
-const removeActiveClass = (className, activeClass) => {
-    let fileIconElement = document.getElementsByClassName(className);
-    Array.from(fileIconElement).forEach(elm => {
-        elm.classList.remove(activeClass);
     });
 }

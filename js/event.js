@@ -1,4 +1,4 @@
-import { allStates, allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications } from "./shared.js";
+import { allStates, allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications, removeActiveClass } from "./shared.js";
 import { initializeCanvas, addEventConsentSubmit, consentTemplate } from "./pages/consent.js";
 import { heardAboutStudy, healthCareProvider } from "./pages/healthCareProvider.js";
 import { myToDoList } from "./pages/myToDoList.js";
@@ -815,4 +815,21 @@ export const retrieveNotificationsInBackgroound = async () => {
     else {
         document.getElementById('notificationBody').innerHTML = 'No notifications found!'
     }
+}
+
+export const toggleCurrentPage = (route) => {
+    const IDs = ['home', 'userDashboard', 'userData', 'userAgreements', 'userSettings', 'connectSupport'];
+    IDs.forEach(id => {
+        const element = document.getElementById(id);
+        element.addEventListener('click', () => {
+            removeActiveClass('navbar-nav', 'current-page');
+            element.parentNode.parentNode.classList.add('current-page');
+        })
+    });
+    if(route === '#dashboard') document.getElementById('userDashboard').click();
+    if(route === '#') document.getElementById('home').click();
+    if(route === '#my_data') document.getElementById('userData').click();
+    if(route === '#agreements') document.getElementById('userAgreements').click();
+    if(route === '#settings') document.getElementById('userSettings').click();
+    if(route === '#support') document.getElementById('connectSupport').click();
 }

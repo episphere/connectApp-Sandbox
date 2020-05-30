@@ -1,3 +1,5 @@
+import { toggleCurrentPage } from "../event.js";
+
 export const signIn = () => {
     const root = document.getElementById('root');
     root.innerHTML = '';
@@ -13,6 +15,7 @@ export const signIn = () => {
         if(user){
             document.getElementById('navbarNavAltMarkup').innerHTML = userNavBar();
             addEventRetrieveNotifications();
+            toggleCurrentPage();
         }
         else{
             document.getElementById('navbarNavAltMarkup').innerHTML = homeNavBar();

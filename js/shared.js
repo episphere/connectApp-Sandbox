@@ -623,3 +623,10 @@ const manageNotificationTokens = (token) => {
         console.error(err);
     }
 }
+
+export const removeActiveClass = (className, activeClass) => {
+    let fileIconElement = document.getElementsByClassName(className);
+    Array.from(fileIconElement).forEach(elm => {
+        elm.classList.remove(activeClass);
+    });
+}

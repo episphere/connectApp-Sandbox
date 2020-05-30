@@ -557,7 +557,24 @@ export const connectPushNotification = () => {
                 const refreshedToken = await messaging.getToken();
                 manageNotificationTokens(refreshedToken);
             });
+            
             messaging.onMessage(payload => {
+                let timesRun = 0;
+                let interval = setInterval(() => {
+                    timesRun += 1;
+                    if(timesRun === 10){
+                        const bellIcon = document.querySelectorAll('.fa-bell')[0];
+                        bellIcon.style.color = '#6464f3';
+                        // if (bellIcon.classList.contains('far')){
+                        //     bellIcon.classList.remove('far');
+                        //     bellIcon.classList.add('fas');
+                        // }
+                        clearInterval(interval);
+                    }else{
+                        animateNotificationBell();
+                    }
+                }, 300);
+                
                 const div = document.createElement('div');
                 div.classList = ["notification"];
                 div.innerHTML = `
@@ -577,6 +594,19 @@ export const connectPushNotification = () => {
         });
     } catch (error) {
         console.error(error);
+    }
+}
+
+const animateNotificationBell = () => {
+    const bellIcon = document.querySelectorAll('.fa-bell')[0];
+    
+    if(bellIcon.classList.contains('fas')){
+        bellIcon.classList.remove('fas');
+        bellIcon.classList.add('far');
+    }
+    else if (bellIcon.classList.contains('far')){
+        bellIcon.classList.remove('far');
+        bellIcon.classList.add('fas');
     }
 }
 

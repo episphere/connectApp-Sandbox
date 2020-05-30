@@ -733,6 +733,12 @@ export const addEventHideNotification = (element) => {
 export const addEventRetrieveNotifications = () => {
     const btn = document.getElementById('retrieveNotifications');
     btn.addEventListener('click', () => {
+        const bellIcon = document.querySelectorAll('.fa-bell')[0];
+        if (bellIcon.style.color) bellIcon.style.color = '';
+        if (bellIcon.classList.contains('far')){
+            bellIcon.classList.remove('far');
+            bellIcon.classList.add('fas');
+        }
         if(document.getElementById('notificationBody')) {
             document.getElementById('notificationBody').innerHTML = `<div id="loadingAnimation" role="status" style="display: block;"></div>`;
         }

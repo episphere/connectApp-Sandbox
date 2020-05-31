@@ -1,4 +1,4 @@
-import { allStates, allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications, removeActiveClass } from "./shared.js";
+import { allStates, allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications, removeActiveClass, enableDarkMode } from "./shared.js";
 import { initializeCanvas, addEventConsentSubmit, consentTemplate } from "./pages/consent.js";
 import { heardAboutStudy, healthCareProvider } from "./pages/healthCareProvider.js";
 import { myToDoList } from "./pages/myToDoList.js";
@@ -817,7 +817,7 @@ export const retrieveNotificationsInBackgroound = async () => {
     }
 }
 
-export const toggleCurrentPage = (route) => {
+export const toggleCurrentPage = async (route) => {
     const IDs = ['home', 'userDashboard', 'userData', 'userAgreements', 'userSettings', 'connectSupport'];
     IDs.forEach(id => {
         const element = document.getElementById(id);
@@ -832,4 +832,5 @@ export const toggleCurrentPage = (route) => {
     if(route === '#agreements') document.getElementById('userAgreements').click();
     if(route === '#settings') document.getElementById('userSettings').click();
     if(route === '#support') document.getElementById('connectSupport').click();
+    enableDarkMode();
 }

@@ -631,7 +631,9 @@ export const removeActiveClass = (className, activeClass) => {
     });
 }
 
-export const enableDarkMode = () => {
+export const enableDarkMode = async () => {
+    const myData = await getMyData();
+    if(myData.code === 200 && myData.data && myData.data.darkMode) enableDarkMode();
     document.body.classList.add('dark-mode');
     const elements = document.getElementsByClassName('form-control');
     Array.from(elements).forEach(e => {

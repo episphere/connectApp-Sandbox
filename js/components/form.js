@@ -190,7 +190,6 @@ export const renderUserProfile = async () => {
     addEventPreferredContactType();
     addEventAdditionalEmail();
     addEventAddressAutoComplete(1);
-    // addEventAddressAutoComplete(5, true);
     addEventUPSubmit();
 };
 

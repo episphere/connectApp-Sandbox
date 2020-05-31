@@ -20,10 +20,18 @@ export const myToDoList = (data) => {
                 template += `
                     <span>You have self assessment questionnaires ready to take</span>
                     <ul class="questionnaire-module-list">
-                        <li class="list-item list-item-active" title="Module 1" id="module1">Module 1</li>
-                        <li class="list-item list-item-disable" title="Module 2" id="module2">Module 2</li>
-                        <li class="list-item list-item-disable" title="Module 3" id="module3">Module 3</li>
-                        <li class="list-item list-item-disable" title="Module 4" id="module4">Module 4</li>
+                        <li class="list-item">
+                            <button class="btn list-item-active btn-agreement" title="Module 1" id="module1">Module 1</button>
+                        </li>
+                        <li class="list-item">
+                            <button class="btn list-item-active btn-disbaled btn-agreement" title="Module 2" id="module2">Module 2</button>
+                        </li>
+                        <li class="list-item">
+                            <button class="btn list-item-active btn-disbaled btn-agreement" title="Module 3" id="module3">Module 3</button>
+                        </li>
+                        <li class="list-item">
+                            <button class="btn list-item-active btn-disbaled btn-agreement" title="Module 4" id="module4">Module 4</button>
+                        </li>
                     </ul>
                 `;
                 mainContent.innerHTML = template;

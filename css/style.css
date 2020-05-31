@@ -455,12 +455,32 @@ canvas {
     border-color: #918c8d !important;
 }
 
+/* @media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1c1e21 !important;
+        color: #ffffff !important;
+        border-color: #918c8d !important;
+    }
+}
+  @media (prefers-color-scheme: light) {
+    body {
+        background-color: #ffffff;
+        color: #000000;
+    }
+} */
+
+.dark-modal {
+    background-color: #1c1e21 !important;
+    color: #ffffff !important;
+    border-color: #918c8d !important;
+}
+
 .form-dark-mode {
     background-color: #3A3B3C !important;
     color: #ffffff !important;
 }
 
-.form-control, .card {
+.form-control, .close-modal, .card {
     background-color: inherit !important;
     color: inherit !important;
     border-color: inherit !important;

@@ -365,7 +365,7 @@ export const addEventUPSubmit = () => {
             openModal();
             document.getElementById('connectModalHeader').innerHTML = `
             <h4>Review your date of birth</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
             `;
@@ -406,7 +406,7 @@ const verifyUserDetails = (formData) => {
     if(!document.getElementById('connectMainModal').classList.contains('show')) openModal();
     document.getElementById('connectModalHeader').innerHTML = `
     <h4>Review your profile details</h4>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
     `;

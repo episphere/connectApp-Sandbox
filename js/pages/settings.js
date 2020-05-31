@@ -1,4 +1,4 @@
-import { showAnimation, hideAnimation, getMyData, allStates, storeResponse, enableDarkMode, disableDarkMode } from "../shared.js";
+import { showAnimation, hideAnimation, getMyData, allStates, storeResponse, toggleDarkMode } from "../shared.js";
 
 export const renderSettingsPage = async () => {
     showAnimation();
@@ -142,11 +142,11 @@ export const renderSettingsPage = async () => {
     element.addEventListener('click', () => {
         if(element.checked){
             storeResponse ({darkMode: true});
-            enableDarkMode();
+            toggleDarkMode(true);
         }
         else {
             storeResponse ({darkMode: false});
-            disableDarkMode();
+            toggleDarkMode(false);
         }
     });
     addEventEditUP(userData);

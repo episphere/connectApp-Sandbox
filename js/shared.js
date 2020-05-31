@@ -633,43 +633,60 @@ export const removeActiveClass = (className, activeClass) => {
 
 export const enableDarkMode = async () => {
     const myData = await getMyData();
-    if(myData.code === 200 && myData.data && myData.data.darkMode) enableDarkMode();
-    document.body.classList.add('dark-mode');
-    const elements = document.getElementsByClassName('form-control');
-    Array.from(elements).forEach(e => {
-        e.classList.add('form-dark-mode');
-    });
-    document.getElementById('footer').classList.add('dark-mode');
-    Array.from(document.getElementsByClassName('navbar-light')).forEach(e => {
-        e.classList.add('navbar-dark');
-        e.classList.add('bg-dark');
-        e.classList.remove('bg-light');
-        e.classList.remove('navbar-light');
-    });
-    Array.from(document.getElementsByClassName('footer-content')).forEach(e => {
-        e.classList.add('footer-dark-mode');
-    });
-    Array.from(document.getElementsByClassName('footer-tagline')).forEach(e => e.style.color = '#ffffff');
-    Array.from(document.getElementsByClassName('footer-links')).forEach(e => e.style.color = '#ffffff');
-    Array.from(document.getElementsByClassName('nav-link')).forEach(e => e.classList.add('nav-link-dark'));
+    if(!(myData.code === 200 && myData.data && myData.data.darkMode)) {
+        toggleDarkMode(false);
+        return;
+    };
+    toggleDarkMode(true);
+    
 }
 
-export const disableDarkMode = () => {
-    if(document.body.classList.contains('dark-mode')) document.body.classList.remove('dark-mode');
-    const elements = document.getElementsByClassName('form-dark-mode');
-    Array.from(elements).forEach(e => {
-        e.classList.remove('form-dark-mode');
-    })
-    Array.from(document.getElementsByClassName('navbar-dark')).forEach(e => {
-        e.classList.remove('navbar-dark');
-        e.classList.remove('bg-dark');
-        e.classList.add('bg-light');
-        e.classList.add('navbar-light');
-    });
-    Array.from(document.getElementsByClassName('footer-content')).forEach(e => {
-        e.classList.remove('footer-dark-mode');
-    });
-    Array.from(document.getElementsByClassName('footer-tagline')).forEach(e => e.style.color = '#000000');
-    Array.from(document.getElementsByClassName('footer-links')).forEach(e => e.style.color = '#4d4d4d');
-    Array.from(document.getElementsByClassName('nav-link')).forEach(e => e.classList.remove('nav-link-dark'));
+export const toggleDarkMode = (bool) => {
+    if(bool){
+        document.body.classList.add('dark-mode');
+        const elements = document.getElementsByClassName('form-control');
+        Array.from(elements).forEach(e => {
+            e.classList.add('form-dark-mode');
+        });
+        document.getElementById('footer').classList.add('dark-mode');
+        Array.from(document.getElementsByClassName('navbar-light')).forEach(e => {
+            e.classList.add('navbar-dark');
+            e.classList.add('bg-dark');
+            e.classList.remove('bg-light');
+            e.classList.remove('navbar-light');
+        });
+        Array.from(document.getElementsByClassName('footer-content')).forEach(e => {
+            e.classList.add('footer-dark-mode');
+        });
+        Array.from(document.getElementsByClassName('footer-tagline')).forEach(e => e.style.color = '#ffffff');
+        Array.from(document.getElementsByClassName('footer-links')).forEach(e => e.style.color = '#ffffff');
+        Array.from(document.getElementsByClassName('nav-link')).forEach(e => e.classList.add('nav-link-dark'));
+        
+        Array.from(document.getElementsByClassName('modal-content')).forEach(e => {
+            e.classList.add('dark-mode');
+        });
+    }
+    else {
+        if(document.body.classList.contains('dark-mode')) document.body.classList.remove('dark-mode');
+        const elements = document.getElementsByClassName('form-dark-mode');
+        Array.from(elements).forEach(e => {
+            e.classList.remove('form-dark-mode');
+        })
+        Array.from(document.getElementsByClassName('navbar-dark')).forEach(e => {
+            e.classList.remove('navbar-dark');
+            e.classList.remove('bg-dark');
+            e.classList.add('bg-light');
+            e.classList.add('navbar-light');
+        });
+        Array.from(document.getElementsByClassName('footer-content')).forEach(e => {
+            e.classList.remove('footer-dark-mode');
+        });
+        Array.from(document.getElementsByClassName('footer-tagline')).forEach(e => e.style.color = '#000000');
+        Array.from(document.getElementsByClassName('footer-links')).forEach(e => e.style.color = '#4d4d4d');
+        Array.from(document.getElementsByClassName('nav-link')).forEach(e => e.classList.remove('nav-link-dark'));
+    
+        Array.from(document.getElementsByClassName('modal-content')).forEach(e => {
+            e.classList.remove('dark-mode');
+        });
+    }
 }

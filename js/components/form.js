@@ -1,4 +1,4 @@
-import { sites, allStates, allCountries, getMyData } from "../shared.js";
+import { sites, allStates, allCountries, getMyData, enableDarkMode } from "../shared.js";
 import { addEventMonthSelection, addEventUPSubmit, addEventCancerFollowUp, addYearsOptions, addEventChangeFocus, addEventPreferredContactType, addEventAddressAutoComplete, addEventAdditionalEmail } from "../event.js";
 
 export const renderUserProfile = async () => {

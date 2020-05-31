@@ -1,4 +1,4 @@
-import { getParameters, validateToken, userLoggedIn, getMyData, showAnimation, hideAnimation, connectPushNotification } from "./js/shared.js";
+import { getParameters, validateToken, userLoggedIn, getMyData, showAnimation, hideAnimation, connectPushNotification, enableDarkMode } from "./js/shared.js";
 import { userNavBar, homeNavBar } from "./js/components/navbar.js";
 import { homePage, joinNowBtn } from "./js/pages/homePage.js";
 import { signIn } from "./js/pages/signIn.js";
@@ -204,12 +204,16 @@ const signOut = () => {
 }
 
 const toggleNavBar = (route) => {
-    auth.onAuthStateChanged(user => {
+    auth.onAuthStateChanged(async user => {
         if(user){
             document.getElementById('navbarNavAltMarkup').innerHTML = userNavBar();
             document.getElementById('joinNow') ? document.getElementById('joinNow').innerHTML = joinNowBtn(false) : ``;
             addEventRetrieveNotifications();
             toggleCurrentPage(route);
+            showAnimation();
+            const myData = await getMyData();
+            hideAnimation();
+            if(myData.code === 200 && myData.data && myData.data.darkMode) enableDarkMode();
         }
         else{
             document.getElementById('navbarNavAltMarkup').innerHTML = homeNavBar();

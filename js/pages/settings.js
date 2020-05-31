@@ -1,4 +1,4 @@
-import { showAnimation, hideAnimation, getMyData, allStates } from "../shared.js";
+import { showAnimation, hideAnimation, getMyData, allStates, storeResponse, enableDarkMode, disableDarkMode } from "../shared.js";
 
 export const renderSettingsPage = async () => {
     showAnimation();
@@ -108,13 +108,47 @@ export const renderSettingsPage = async () => {
                     ${userData.RcrtUP_City_v1r0} ${Object.keys(allStates)[Object.values(allStates).indexOf(parseInt(userData.RcrtUP_State_v1r0))]} ${userData.RcrtUP_Zip_v1r0}
                 </div>
             </div>
+            <div class="row">
+                <div class="col">Dark Mode</div>
+                <div class="col">
+                    <label class="switch form-group">
+                        <input type="checkbox" id="darkMode" ${userData.darkMode ? 'checked' : ''}>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        `;
+    }
+    else if(myData.code === 200){
+        template += `
+            <div class="row">
+                <div class="col">Dark Mode</div>
+                <div class="col">
+                    <label class="switch form-group">
+                        <input type="checkbox" id="darkMode" ${myData.data.darkMode ? 'checked' : ''}>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
         `;
     }
     else {
         template += 'Settings not available';
     }
+
     document.getElementById('root').innerHTML = template;
     hideAnimation();
+    const element = document.getElementById('darkMode');
+    element.addEventListener('click', () => {
+        if(element.checked){
+            storeResponse ({darkMode: true});
+            enableDarkMode();
+        }
+        else {
+            storeResponse ({darkMode: false});
+            disableDarkMode();
+        }
+    });
     addEventEditUP(userData);
 }
 

@@ -210,7 +210,8 @@ const toggleNavBar = (route) => {
             document.getElementById('joinNow') ? document.getElementById('joinNow').innerHTML = joinNowBtn(false) : ``;
             addEventRetrieveNotifications();
             toggleCurrentPage(route);
-            enableDarkMode();
+            const myData = await getMyData();
+            enableDarkMode(myData.code === 200 && myData.data && myData.data.darkMode);
         }
         else{
             document.getElementById('navbarNavAltMarkup').innerHTML = homeNavBar();

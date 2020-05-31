@@ -631,13 +631,9 @@ export const removeActiveClass = (className, activeClass) => {
     });
 }
 
-export const enableDarkMode = async () => {
-    const myData = await getMyData();
-    if(!(myData.code === 200 && myData.data && myData.data.darkMode)) {
-        toggleDarkMode(false);
-        return;
-    };
-    toggleDarkMode(true);
+export const enableDarkMode = async (enable) => {
+    if(!enable) toggleDarkMode(false);
+    else toggleDarkMode(true);
     
 }
 

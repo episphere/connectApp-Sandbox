@@ -832,5 +832,4 @@ export const toggleCurrentPage = async (route) => {
     if(route === '#agreements') document.getElementById('userAgreements').click();
     if(route === '#settings') document.getElementById('userSettings').click();
     if(route === '#support') document.getElementById('connectSupport').click();
-    enableDarkMode();
 }

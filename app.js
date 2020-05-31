@@ -1,4 +1,4 @@
-import { getParameters, validateToken, userLoggedIn, getMyData, showAnimation, hideAnimation, connectPushNotification, enableDarkMode } from "./js/shared.js";
+import { getParameters, validateToken, userLoggedIn, getMyData, showAnimation, hideAnimation, connectPushNotification, enableDarkMode, toggleDarkMode } from "./js/shared.js";
 import { userNavBar, homeNavBar } from "./js/components/navbar.js";
 import { homePage, joinNowBtn } from "./js/pages/homePage.js";
 import { signIn } from "./js/pages/signIn.js";
@@ -37,7 +37,12 @@ window.onload = async () => {
     
     const footer = document.getElementById('footer');
     footer.innerHTML = footerTemplate();
-
+    auth.onAuthStateChanged(async user => {
+        if(user){
+            const myData = await getMyData();
+            enableDarkMode(myData.code === 200 && myData.data && myData.data.darkMode);
+        }
+    });
     router();
 }
 
@@ -105,7 +110,6 @@ const handleResetPassword = (auth, actionCode) => {
 }
 
 window.onhashchange = () => {
-    document.getElementById('navbarNavAltMarkup').classList.remove('show');
     router();
 }
 
@@ -200,6 +204,7 @@ const userProfile = () => {
 
 const signOut = () => {
     firebase.auth().signOut();
+    toggleDarkMode(false);
     window.location.hash = '#';
 }
 
@@ -210,8 +215,6 @@ const toggleNavBar = (route) => {
             document.getElementById('joinNow') ? document.getElementById('joinNow').innerHTML = joinNowBtn(false) : ``;
             addEventRetrieveNotifications();
             toggleCurrentPage(route);
-            const myData = await getMyData();
-            enableDarkMode(myData.code === 200 && myData.data && myData.data.darkMode);
         }
         else{
             document.getElementById('navbarNavAltMarkup').innerHTML = homeNavBar();

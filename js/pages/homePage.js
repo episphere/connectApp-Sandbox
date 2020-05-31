@@ -1,5 +1,3 @@
-import { getMyData, enableDarkMode } from "../shared.js";
-
 export const homePage = async () => {
     const mainContent = document.getElementById('root');
     const isIE = /*@cc_on!@*/false || !!document.documentMode;

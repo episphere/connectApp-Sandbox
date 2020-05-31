@@ -109,7 +109,7 @@ export const addYearsOptions = () => {
     const minYear = currentYear - 40;
     let template = '';
     for(let i = maxYear; i<= minYear; i++) {
-        template += `<option value="${i}">`
+        template += `<option class="option-dark-mode" value="${i}">`
     }
     document.getElementById('yearsOption').innerHTML = template;
 }

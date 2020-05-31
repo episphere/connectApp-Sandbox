@@ -32,19 +32,19 @@ export const renderSettingsPage = async () => {
                 <div class="col data">Month</div>
                 <div class="col">
                     <select class="form-control" disabled required id="UPMonth">
-                        <option value="">-- Select Month --</option>
-                        <option value="01" ${userData.RcrtUP_MOB_v1r0 === '01' ? 'selected' : ''}>1 - January</option>
-                        <option value="02" ${userData.RcrtUP_MOB_v1r0 === '02' ? 'selected' : ''}>2 - February</option>
-                        <option value="03" ${userData.RcrtUP_MOB_v1r0 === '03' ? 'selected' : ''}>3 - March</option>
-                        <option value="04" ${userData.RcrtUP_MOB_v1r0 === '04' ? 'selected' : ''}>4 - April</option>
-                        <option value="05" ${userData.RcrtUP_MOB_v1r0 === '05' ? 'selected' : ''}>5 - May</option>
-                        <option value="06" ${userData.RcrtUP_MOB_v1r0 === '06' ? 'selected' : ''}>6 - June</option>
-                        <option value="07" ${userData.RcrtUP_MOB_v1r0 === '07' ? 'selected' : ''}>7 - July</option>
-                        <option value="08" ${userData.RcrtUP_MOB_v1r0 === '08' ? 'selected' : ''}>8 - August</option>
-                        <option value="09" ${userData.RcrtUP_MOB_v1r0 === '09' ? 'selected' : ''}>9 - September</option>
-                        <option value="10" ${userData.RcrtUP_MOB_v1r0 === '10' ? 'selected' : ''}>10 - October</option>
-                        <option value="11" ${userData.RcrtUP_MOB_v1r0 === '11' ? 'selected' : ''}>11 - November</option>
-                        <option value="12" ${userData.RcrtUP_MOB_v1r0 === '12' ? 'selected' : ''}>12 - December</option>
+                        <option class="option-dark-mode" value="">-- Select Month --</option>
+                        <option class="option-dark-mode" value="01" ${userData.RcrtUP_MOB_v1r0 === '01' ? 'selected' : ''}>1 - January</option>
+                        <option class="option-dark-mode" value="02" ${userData.RcrtUP_MOB_v1r0 === '02' ? 'selected' : ''}>2 - February</option>
+                        <option class="option-dark-mode" value="03" ${userData.RcrtUP_MOB_v1r0 === '03' ? 'selected' : ''}>3 - March</option>
+                        <option class="option-dark-mode" value="04" ${userData.RcrtUP_MOB_v1r0 === '04' ? 'selected' : ''}>4 - April</option>
+                        <option class="option-dark-mode" value="05" ${userData.RcrtUP_MOB_v1r0 === '05' ? 'selected' : ''}>5 - May</option>
+                        <option class="option-dark-mode" value="06" ${userData.RcrtUP_MOB_v1r0 === '06' ? 'selected' : ''}>6 - June</option>
+                        <option class="option-dark-mode" value="07" ${userData.RcrtUP_MOB_v1r0 === '07' ? 'selected' : ''}>7 - July</option>
+                        <option class="option-dark-mode" value="08" ${userData.RcrtUP_MOB_v1r0 === '08' ? 'selected' : ''}>8 - August</option>
+                        <option class="option-dark-mode" value="09" ${userData.RcrtUP_MOB_v1r0 === '09' ? 'selected' : ''}>9 - September</option>
+                        <option class="option-dark-mode" value="10" ${userData.RcrtUP_MOB_v1r0 === '10' ? 'selected' : ''}>10 - October</option>
+                        <option class="option-dark-mode" value="11" ${userData.RcrtUP_MOB_v1r0 === '11' ? 'selected' : ''}>11 - November</option>
+                        <option class="option-dark-mode" value="12" ${userData.RcrtUP_MOB_v1r0 === '12' ? 'selected' : ''}>12 - December</option>
                     </select>
                 </div>
             </div>

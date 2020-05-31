@@ -81,21 +81,21 @@ export const addEventMonthSelection = () => {
     const UPMonth = document.getElementById('UPMonth');
     UPMonth.addEventListener('change', () => {
         const value = UPMonth.value;
-        let template = '<option value="">-- Select birth day --</option>';
+        let template = '<option class="option-dark-mode" value="">-- Select birth day --</option>';
 
         if(value === '02'){
             for(let i = 1; i < 30; i++){
-                template += `<option value=${i < 10 ? `0${i}`: `${i}`}>${i}</option>`
+                template += `<option class="option-dark-mode" value=${i < 10 ? `0${i}`: `${i}`}>${i}</option>`
             }
         }
         if(value === '01' || value === '03' || value === '05' || value === '07' || value === '08' || value === '10' || value === '12'){
             for(let i = 1; i < 32; i++){
-                template += `<option value=${i < 10 ? `0${i}`: `${i}`}>${i}</option>`
+                template += `<option class="option-dark-mode" value=${i < 10 ? `0${i}`: `${i}`}>${i}</option>`
             }
         }
         if(value === '04' || value === '06' || value === '09' || value === '11'){
             for(let i = 1; i < 31; i++){
-                template += `<option value=${i < 10 ? `0${i}`: `${i}`}>${i}</option>`
+                template += `<option class="option-dark-mode" value=${i < 10 ? `0${i}`: `${i}`}>${i}</option>`
             }
         }
 

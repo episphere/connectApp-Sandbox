@@ -475,9 +475,9 @@ canvas {
     border-color: #918c8d !important;
 }
 
-.form-dark-mode {
-    background-color: #3A3B3C !important;
-    color: #ffffff !important;
+.option-dark-mode {
+    background-color: #c5c6c8 !important;
+    color: #000000 !important;
 }
 
 .form-control, .close-modal, .card {

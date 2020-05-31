@@ -30,11 +30,11 @@ export const healthCareProvider = (siteId) => {
             <div class="form-group">
                 <label for="RcrtES_Site_v1r0"><strong>Who is your healthcare provider?<span class="required"> *</span></strong>
                     <select ${siteId ? `disabled` : ``} class="form-control" id="RcrtES_Site_v1r0" required>
-                        <option class="option-dark-mode" class="option-dark-mode" value="">-- Select healthcare provider --</option>
+                        <option class="option-dark-mode" value="">-- Select healthcare provider --</option>
     `;
 
     for (let siteCode in sites()){
-        template += `<option ${siteId && siteId === parseInt(siteCode) ? `selected`: `` } value=${siteCode}>${sites()[siteCode]}</option>`;
+        template += `<option class="option-dark-mode" ${siteId && siteId === parseInt(siteCode) ? `selected`: `` } value=${siteCode}>${sites()[siteCode]}</option>`;
     }
 
     template += `

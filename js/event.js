@@ -826,10 +826,23 @@ export const toggleCurrentPage = async (route) => {
             element.parentNode.parentNode.classList.add('current-page');
         })
     });
-    if(route === '#dashboard') document.getElementById('userDashboard').click();
     if(route === '#') document.getElementById('home').click();
+    if(route === '#dashboard') document.getElementById('userDashboard').click();
     if(route === '#my_data') document.getElementById('userData').click();
     if(route === '#agreements') document.getElementById('userAgreements').click();
     if(route === '#settings') document.getElementById('userSettings').click();
     if(route === '#support') document.getElementById('connectSupport').click();
+}
+
+export const toggleCurrentPageNoUser = async (route) => {
+    const IDs = ['home', 'signIn'];
+    IDs.forEach(id => {
+        const element = document.getElementById(id);
+        element.addEventListener('click', () => {
+            removeActiveClass('navbar-nav', 'current-page');
+            element.parentNode.parentNode.classList.add('current-page');
+        })
+    });
+    if(route === '#') document.getElementById('home').click();
+    if(route === '#sign_in') document.getElementById('signIn').click();
 }

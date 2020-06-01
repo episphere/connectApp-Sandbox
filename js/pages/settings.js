@@ -139,14 +139,18 @@ export const renderSettingsPage = async () => {
     document.getElementById('root').innerHTML = template;
     hideAnimation();
     const element = document.getElementById('darkMode');
-    element.addEventListener('click', () => {
+    element.addEventListener('click', async () => {
         if(element.checked){
-            storeResponse ({darkMode: true});
             toggleDarkMode(true);
+            showAnimation();
+            await storeResponse ({darkMode: true});
+            hideAnimation();
         }
         else {
-            storeResponse ({darkMode: false});
             toggleDarkMode(false);
+            showAnimation();
+            await storeResponse ({darkMode: false});
+            hideAnimation();
         }
     });
     addEventEditUP(userData);

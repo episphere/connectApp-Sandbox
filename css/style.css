@@ -472,7 +472,7 @@ canvas {
 .dark-modal {
     background-color: #1c1e21 !important;
     color: #ffffff !important;
-    border-color: #918c8d !important;
+    border-color: #4b4a4a !important;
 }
 
 .option-dark-mode {
@@ -484,7 +484,7 @@ canvas {
     border-radius: 0.4rem;
 }
 
-.form-control, .close-modal, .card, .toast {
+.form-control, .close-modal, .card, .toast, .card-header {
     background-color: inherit !important;
     color: inherit !important;
     border-color: inherit !important;

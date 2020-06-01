@@ -564,11 +564,7 @@ export const connectPushNotification = () => {
                     timesRun += 1;
                     if(timesRun === 10){
                         const bellIcon = document.querySelectorAll('.fa-bell')[0];
-                        bellIcon.style.color = '#6464f3';
-                        // if (bellIcon.classList.contains('far')){
-                        //     bellIcon.classList.remove('far');
-                        //     bellIcon.classList.add('fas');
-                        // }
+                        bellIcon.style.color = '#82a55a';
                         clearInterval(interval);
                     }else{
                         animateNotificationBell();

@@ -1,5 +1,3 @@
-import { toggleCurrentPage } from "../event.js";
-
 export const signIn = () => {
     const root = document.getElementById('root');
     root.innerHTML = '';
@@ -10,22 +8,11 @@ export const signIn = () => {
     
     const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
     ui.start('#signInDiv', signInConfig());
-
-    auth.onAuthStateChanged(user => {
-        if(user){
-            document.getElementById('navbarNavAltMarkup').innerHTML = userNavBar();
-            addEventRetrieveNotifications();
-            toggleCurrentPage();
-        }
-        else{
-            document.getElementById('navbarNavAltMarkup').innerHTML = homeNavBar();
-        }
-    });
 }
 
 const signInConfig = () => {
     return {
-        signInSuccessUrl: '#dashboard',
+        signInSuccessUrl: './#dashboard',
         signInOptions: [
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
             firebase.auth.EmailAuthProvider.PROVIDER_ID,

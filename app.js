@@ -184,7 +184,7 @@ const userProfile = () => {
                 return;
             }
             
-            window.history.replaceState({},'', './#dashboard');
+            window.history.replaceState({},'Dashboard', './#dashboard');
             const myData = await getMyData();
             if(myData.code === 200) {
                 connectPushNotification();

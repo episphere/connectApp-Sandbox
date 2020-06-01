@@ -635,7 +635,7 @@ export const enableDarkMode = async (enable) => {
 export const toggleDarkMode = (bool) => {
     if(bool){
         document.body.classList.add('dark-mode');
-        document.getElementById('footer').classList.add('dark-mode');
+        
         Array.from(document.getElementsByClassName('navbar-light')).forEach(e => {
             e.classList.add('navbar-dark');
             e.classList.add('bg-dark');
@@ -654,7 +654,7 @@ export const toggleDarkMode = (bool) => {
         });
     }
     else {
-        if(document.body.classList.contains('dark-mode')) document.body.classList.remove('dark-mode');
+        document.body.classList.remove('dark-mode');
         
         Array.from(document.getElementsByClassName('navbar-dark')).forEach(e => {
             e.classList.remove('navbar-dark');

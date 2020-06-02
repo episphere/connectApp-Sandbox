@@ -42,17 +42,43 @@ window.onload = async () => {
             if(localStorage.connect && JSON.parse(localStorage.connect).darkMode === true){
                 enableDarkMode(true)
                 const myData = await getMyData();
-                if((myData.code === 200 && myData.data && myData.data.darkMode) === false){
+                if(myData.code !== 200) return;
+                if(myData.data.darkMode === undefined) {
+                    const tmpObj = JSON.parse(localStorage.connect);
+                    delete tmpObj.darkMode;
+                    localStorage.connect = JSON.stringify(tmpObj);
+                    enableDarkMode(false);
+                }
+                else if(myData.data.darkMode === false){
                     localStorage.connect = JSON.stringify({darkMode: false})
                     enableDarkMode(false);
                 }
             }
-            if(localStorage.connect && JSON.parse(localStorage.connect).darkMode === false){
+            else if(localStorage.connect && JSON.parse(localStorage.connect).darkMode === false){
                 enableDarkMode(false)
                 const myData = await getMyData();
-                if((myData.code === 200 && myData.data && myData.data.darkMode) === true){
+                if(myData.code !== 200) return;
+                if(myData.data.darkMode === undefined) {
+                    const tmpObj = JSON.parse(localStorage.connect);
+                    delete tmpObj.darkMode;
+                    localStorage.connect = JSON.stringify(tmpObj);
+                    enableDarkMode(false);
+                }
+                else if(myData.data.darkMode === true){
                     localStorage.connect = JSON.stringify({darkMode: true})
                     enableDarkMode(true);
+                }
+            }
+            else {
+                const myData = await getMyData();
+                if(myData.code !== 200) return;
+                if(myData.data.darkMode === true){
+                    localStorage.connect = JSON.stringify({darkMode: true})
+                    enableDarkMode(true);
+                }
+                else if(myData.data.darkMode === false){
+                    localStorage.connect = JSON.stringify({darkMode: false})
+                    enableDarkMode(false);
                 }
             }
             

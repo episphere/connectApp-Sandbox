@@ -143,12 +143,14 @@ export const renderSettingsPage = async () => {
         if(element.checked){
             toggleDarkMode(true);
             showAnimation();
+            localStorage.connect = JSON.stringify({darkMode: true});
             await storeResponse ({darkMode: true});
             hideAnimation();
         }
         else {
             toggleDarkMode(false);
             showAnimation();
+            localStorage.connect = JSON.stringify({darkMode: false});
             await storeResponse ({darkMode: false});
             hideAnimation();
         }

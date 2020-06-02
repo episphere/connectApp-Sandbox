@@ -843,6 +843,7 @@ export const toggleCurrentPageNoUser = async (route) => {
         element.addEventListener('click', () => {
             removeActiveClass('navbar-nav', 'current-page');
             element.parentNode.parentNode.classList.add('current-page');
+            toggleNavbarMobileView();
         })
     });
     if(route === '#') document.getElementById('home').click();

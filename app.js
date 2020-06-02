@@ -39,8 +39,23 @@ window.onload = async () => {
     footer.innerHTML = footerTemplate();
     auth.onAuthStateChanged(async user => {
         if(user){
-            const myData = await getMyData();
-            enableDarkMode(myData.code === 200 && myData.data && myData.data.darkMode);
+            if(localStorage.connect && JSON.parse(localStorage.connect).darkMode === true){
+                enableDarkMode(true)
+                const myData = await getMyData();
+                if((myData.code === 200 && myData.data && myData.data.darkMode) === false){
+                    localStorage.connect = JSON.stringify({darkMode: false})
+                    enableDarkMode(false);
+                }
+            }
+            if(localStorage.connect && JSON.parse(localStorage.connect).darkMode === false){
+                enableDarkMode(false)
+                const myData = await getMyData();
+                if((myData.code === 200 && myData.data && myData.data.darkMode) === true){
+                    localStorage.connect = JSON.stringify({darkMode: true})
+                    enableDarkMode(true);
+                }
+            }
+            
         }
     });
     router();

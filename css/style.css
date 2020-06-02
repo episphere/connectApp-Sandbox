@@ -489,6 +489,10 @@ canvas {
     border-color: inherit !important;
 }
 
+.up-btns {
+    border-color: inherit !important;
+}
+
 .footer-dark-mode {
     background-color: #343a40 !important;
     color: #ffffff !important;

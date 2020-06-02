@@ -108,6 +108,9 @@ export const renderSettingsPage = async () => {
                     ${userData.RcrtUP_City_v1r0} ${Object.keys(allStates)[Object.values(allStates).indexOf(parseInt(userData.RcrtUP_State_v1r0))]} ${userData.RcrtUP_Zip_v1r0}
                 </div>
             </div>
+            <div class="row settings-header">
+                <div class="col"><h4>Theme preference</h4></div>
+            </div>
             <div class="row">
                 <div class="col">Dark Mode</div>
                 <div class="col">
@@ -121,6 +124,9 @@ export const renderSettingsPage = async () => {
     }
     else if(myData.code === 200){
         template += `
+            <div class="row settings-header">
+                <div class="col"><h4>Theme preference</h4></div>
+            </div>
             <div class="row">
                 <div class="col">Dark Mode</div>
                 <div class="col">

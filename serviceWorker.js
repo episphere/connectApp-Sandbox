@@ -37,7 +37,7 @@ registerRoute(/\.(?:png|jpg|jpeg|svg|gif|ico)$/,
         plugins: [
             new ExpirationPlugin({
                 maxEntries: 30,
-                maxAgeSeconds: 7 * 24 * 60 * 60,
+                maxAgeSeconds: 24 * 60 * 60,
             })
         ]
     })

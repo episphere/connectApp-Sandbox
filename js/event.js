@@ -371,8 +371,8 @@ export const addEventUPSubmit = () => {
             `;
             document.getElementById('connectModalBody').innerHTML = `The provided date of birth exceeds the age requirement of eligibility criteria for this study. Do you want to continue?`;
             document.getElementById('connectModalFooter').innerHTML = `
-                <button type="button" title="Close" class="btn btn-dark sub-div-shadow" data-dismiss="modal">Modify</button>
-                <button type="button" id="continueAnyways" title="Continue anyways" class="btn btn-primary sub-div-shadow">Continue anyways</button>
+                <button type="button" title="Close" class="btn btn-dark" data-dismiss="modal">Modify</button>
+                <button type="button" id="continueAnyways" title="Continue anyways" class="btn btn-primary">Continue anyways</button>
             `
             document.getElementById('continueAnyways').addEventListener('click', () => {
                 verifyUserDetails(formData);
@@ -584,8 +584,8 @@ const verifyUserDetails = (formData) => {
     `;
 
     document.getElementById('connectModalFooter').innerHTML = `
-        <button type="button" title="Close" class="btn btn-dark sub-div-shadow" data-dismiss="modal">Close</button>
-        <button type="button" id="confirmReview" title="Confirm details" class="btn btn-primary sub-div-shadow" data-dismiss="modal">Confirm</button>
+        <button type="button" title="Close" class="btn btn-dark" data-dismiss="modal">Close</button>
+        <button type="button" id="confirmReview" title="Confirm details" class="btn btn-primary" data-dismiss="modal">Confirm</button>
     `;
 
     document.getElementById('confirmReview').addEventListener('click', async () => {
@@ -776,7 +776,7 @@ export const retrieveNotificationsInBackgroound = async () => {
         for(let msg of response.data){
             if(new Date(msg.notification.time).toLocaleDateString() === new Date().toLocaleDateString()){
                 const div = document.createElement('div');
-                div.classList = ["card notification-card sub-div-shadow"];
+                div.classList = ["card notification-card"];
                 const header = document.createElement('div');
                 header.classList = ["card-header"];
                 header.innerHTML = `${new Date(msg.notification.time).toLocaleTimeString()}`;
@@ -788,7 +788,7 @@ export const retrieveNotificationsInBackgroound = async () => {
                 panelTodayBody.appendChild(div);
             }else{
                 const div = document.createElement('div');
-                div.classList = ["card notification-card sub-div-shadow"];
+                div.classList = ["card notification-card"];
                 const header = document.createElement('div');
                 header.classList = ["card-header"];
                 header.innerHTML = `${new Date(msg.notification.time).toLocaleString()}`;

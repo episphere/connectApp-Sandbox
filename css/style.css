@@ -137,6 +137,12 @@
 .bar-code-image {
     height: 75%;
     width: 75%;
+    max-height: 125px;
+    max-width: 150px;
+}
+
+.about-cancer {
+    margin-right: 30px;
 }
 
 .list {
@@ -569,4 +575,12 @@ input:checked + .slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.fa-share, .fa-female, .fa-users, .fa-searchengin {
+    margin: 5px 0px 0px 5px;
+}
+
+.fa-male {
+    margin-top: 5px;
 }

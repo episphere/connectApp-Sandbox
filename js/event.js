@@ -1,4 +1,4 @@
-import { allStates, allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications, removeActiveClass, enableDarkMode, toggleDarkMode } from "./shared.js";
+import { allStates, allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications, removeActiveClass, toggleNavbarMobileView, toggleDarkMode } from "./shared.js";
 import { initializeCanvas, addEventConsentSubmit, consentTemplate } from "./pages/consent.js";
 import { heardAboutStudy, healthCareProvider } from "./pages/healthCareProvider.js";
 import { myToDoList } from "./pages/myToDoList.js";
@@ -824,7 +824,8 @@ export const toggleCurrentPage = async (route) => {
         element.addEventListener('click', () => {
             removeActiveClass('navbar-nav', 'current-page');
             element.parentNode.parentNode.classList.add('current-page');
-        })
+            toggleNavbarMobileView();
+        });
     });
     if(route === '#') document.getElementById('home').click();
     if(route === '#dashboard') document.getElementById('userDashboard').click();

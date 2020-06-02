@@ -674,3 +674,10 @@ export const toggleDarkMode = (bool) => {
         });
     }
 }
+
+export const toggleNavbarMobileView = () => {
+    const btn = document.querySelectorAll('.navbar-toggler');
+    if(btn && btn[0]){
+        if(!btn[0].classList.contains('collapsed')) btn[0].click();
+    }
+}

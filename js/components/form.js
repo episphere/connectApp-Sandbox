@@ -5,10 +5,6 @@ export const renderUserProfile = async () => {
     const myData = await getMyData();
     const siteId = myData.data ? myData.data.RcrtES_Site_v1r0 : undefined;
     const mainContent = document.getElementById('root');
-    const js = document.createElement("script");
-    js.type = "text/javascript";
-    js.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDe3Ewzl4x7hEX30EiQJ0tvXBtzd2Hghiw&libraries=places";
-    document.body.appendChild(js);
     mainContent.innerHTML = `
         </br>
         <h2>User profile</h2>

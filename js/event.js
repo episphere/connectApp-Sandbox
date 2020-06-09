@@ -467,6 +467,10 @@ const removeAllErrors = () => {
         const errorMsg = element.parentNode;
         const parent = element.parentNode.parentNode;
         parent.removeChild(errorMsg);
+    });
+    const invalids = document.getElementsByClassName('invalid');
+    Array.from(invalids).forEach(element => {
+        element.classList.remove('invalid');
     })
 }
 

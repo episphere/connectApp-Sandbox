@@ -253,6 +253,80 @@ export const addEventUPSubmit = () => {
     userProfileForm.addEventListener('submit', async e => {
         e.preventDefault();
         removeAllErrors();
+        const requiredFields = document.getElementsByClassName('required-field');
+        const validations = document.getElementsByClassName('input-validation');
+        const radios = document.getElementsByName('UPRadio');
+        let hasError = false;
+        let focus = true;
+        Array.from(validations).forEach(element => {
+            if(element.value){
+                const validationPattern = element.dataset.validationPattern;
+                if(validationPattern && validationPattern === 'alphabets') {
+                    if(!/^[A-Za-z]+$/.test(element.value)) {
+                        errorMessage(element.id, element.dataset.errorValidation, focus)
+                        focus = false;
+                        hasError = true;
+                    }
+                }
+                if(validationPattern && validationPattern === 'year') {
+                    if(!/[19|20]{2}[0-9]{2}/.test(element.value)) {
+                        errorMessage(element.id, element.dataset.errorValidation, focus)
+                        focus = false;
+                        hasError = true;
+                    }
+                    else {
+                        if(element.value.length > 4) {
+                            errorMessage(element.id, element.dataset.errorValidation, focus)
+                            focus = false;
+                            hasError = true;
+                        }
+                        else if (parseInt(element.value) > new Date().getFullYear()) {
+                            errorMessage(element.id, element.dataset.errorValidation, focus)
+                            focus = false;
+                            hasError = true;
+                        }
+                    }
+                }
+            }
+        });
+        Array.from(requiredFields).forEach(element => {
+            if(!element.value){
+                errorMessage(element.id, `${element.dataset.errorRequired}`, focus);
+                focus = false;
+                hasError = true;
+            }
+        });
+        let radioChecked = false;
+        Array.from(radios).forEach(element => {
+            if(element.checked) radioChecked = true;
+        });
+        if(radioChecked === false) {
+            document.getElementById('radioGroup').classList.add('invalid');
+            errorMessage('radioGroup', `Please select your biological sex`);
+            if(focus) document.getElementById('radioGroup').children[0].focus()
+            focus = false;
+            hasError = true;
+        }
+        const phoneNo = `${document.getElementById('UPPhoneNumber11').value}${document.getElementById('UPPhoneNumber12').value}${document.getElementById('UPPhoneNumber13').value}`;
+        const email = document.getElementById('UPEmail').value;
+        if(!phoneNo && !email){
+            errorMessage('UPEmail', 'Please enter either a mobile phone number or email address', focus);
+            errorMessage('mainMobilePhone', 'Please enter either a mobile phone number or email address');
+            focus = false;
+            hasError = true;
+        }
+        if(phoneNo && phoneNo.length < 10 ){
+            errorMessage('mainMobilePhone', 'Please enter a phone number in this format: 999-999-9999');
+            if(focus) document.getElementById('UPPhoneNumber11').focus();
+            focus = false;
+            hasError = true;
+        }
+        if(email && /\S+@\S+\.\S+/.test(email) === false) {
+            errorMessage('UPEmail', 'Please enter a email address in this format: name@example.com', focus);
+            focus = false;
+            hasError = true;
+        }
+        if(hasError) return false;
         let formData = {};
         formData['RcrtUP_Fname_v1r0'] = document.getElementById('UPFirstName').value;
         formData['RcrtUP_Minitial_v1r0'] = document.getElementById('UPMiddleInitial').value;
@@ -269,7 +343,7 @@ export const addEventUPSubmit = () => {
             const year = parseInt(formData.RcrtUP_YOB_v1r0);
             const isLeapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
             if(!isLeapYear){
-                errorMessage('UPDay', 'Invalid day')
+                errorMessage('UPDay', 'Invalid day', true);
                 return false;
             }
         }
@@ -334,7 +408,7 @@ export const addEventUPSubmit = () => {
                 formData['RCRTUP_CANCERYR_V1R0'] = document.getElementById('UPCancerYear').value;
             }
             else {
-                errorMessage('UPCancerYear', 'Year of cancer diagnosed can not be less than the birth year.');
+                errorMessage('UPCancerYear', 'Your year of cancer diagnosed can not be less than the birth year.', true);
                 return false;
             }
         }
@@ -344,19 +418,13 @@ export const addEventUPSubmit = () => {
         if(formData.RcrtUP_Email1_v1r0){
             const confirmedEmail = document.getElementById('confirmUPEmail').value;
             if(!confirmedEmail){
-                errorMessage('confirmUPEmail', 'Please confirm your preferred email.');
+                errorMessage('confirmUPEmail', 'Please confirm your email address.', true);
                 return false;
             }
             else if(confirmedEmail !== formData.RcrtUP_Email1_v1r0){
-                errorMessage('confirmUPEmail', 'Doesn\'t match with preferred email.');
+                errorMessage('confirmUPEmail', 'Your email addresses do not match. Please retype your email addresses.', true);
                 return false;     
             }
-        }
-
-        if(formData.RcrtUP_Phone1_v1r0 === undefined && formData.RcrtUP_Email1_v1r0 === undefined){
-            errorMessage('UPEmail', 'Please provide either preferred email or mobile phone.');
-            errorMessage('mainMobilePhone', 'Please provide either mobile phone or preferred email.');
-            return false;
         }
         
         const ageToday = getAge(`${formData.RcrtUP_YOB_v1r0}-${formData.RcrtUP_MOB_v1r0}-${formData.RcrtUP_BD_v1r0}`);
@@ -369,10 +437,10 @@ export const addEventUPSubmit = () => {
                 <span aria-hidden="true">&times;</span>
             </button>
             `;
-            document.getElementById('connectModalBody').innerHTML = `The provided date of birth exceeds the age requirement of eligibility criteria for this study. Do you want to continue?`;
+            document.getElementById('connectModalBody').innerHTML = `The date of birth that you entered does not make you eligible for the study. Please check that you entered your correct date of birth.`;
             document.getElementById('connectModalFooter').innerHTML = `
-                <button type="button" title="Close" class="btn btn-dark" data-dismiss="modal">Modify</button>
-                <button type="button" id="continueAnyways" title="Continue anyways" class="btn btn-primary">Continue anyways</button>
+                <button type="button" title="Close" class="btn btn-dark" data-dismiss="modal">Back</button>
+                <button type="button" id="continueAnyways" title="Continue anyways" class="btn btn-primary">Continue anyway</button>
             `
             document.getElementById('continueAnyways').addEventListener('click', () => {
                 verifyUserDetails(formData);

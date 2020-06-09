@@ -585,3 +585,7 @@ input:checked + .slider:before {
 .fa-male {
     margin-top: 5px;
 }
+
+.invalid {
+    border-color: #dc3545 !important;
+}

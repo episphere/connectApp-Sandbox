@@ -20,6 +20,7 @@ window.onload = async () => {
         const mainContent = document.getElementById('root');
         mainContent.innerHTML = `<span class="not-compatible">Connect web application is not compatible with Internet Explorer, please use Chrome, Safari, Firefox or Edge.</span>`;
     }
+    if(localStorage.connect && JSON.parse(localStorage.connect).darkMode === true) enableDarkMode(true)
     !firebase.apps.length ? firebase.initializeApp(firebaseConfig()) : firebase.app();
     auth = firebase.auth();
     if('serviceWorker' in navigator){

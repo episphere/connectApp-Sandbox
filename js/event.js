@@ -806,7 +806,7 @@ export const addEventCancerFollowUp = () => {
         document.getElementById('cancerFollowUp').innerHTML = `
             <div class="form-group row">
                 <label class="col-md-4 col-form-label">What year were you diagnosed?</label>
-                <input type="text" class="form-control col-md-4" maxlength="4" id="UPCancerYear" pattern="[19|20]{2}[0-9]{2}" title="(require a four-digit numeric year starting with 19XX or 20XX" Placeholder="YYYY">
+                <input type="text" class="form-control input-validation col-md-4" maxlength="4" id="UPCancerYear" data-validation-pattern="year" data-error-validation="Your birth year must contain four digits in the YYYY format." Placeholder="YYYY">
             </div>
 
             <div class="form-group row">
@@ -840,6 +840,7 @@ export const addEventHideNotification = (element) => {
 
 export const addEventRetrieveNotifications = () => {
     const btn = document.getElementById('retrieveNotifications');
+    if(!btn) return;
     btn.addEventListener('click', () => {
         const bellIcon = document.querySelectorAll('.fa-bell')[0];
         if (bellIcon.style.color) bellIcon.style.color = '';

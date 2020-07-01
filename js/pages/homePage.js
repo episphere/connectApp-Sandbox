@@ -7,21 +7,21 @@ export const homePage = async () => {
             <div class="col-sm-9 images-grid">
                 <div class="row images-row">
                     <div class="col-sm-4 images-col">
-                        <img class="landing-page-images" src="./images/1.jpg">
+                        <img class="landing-page-images" src="./images/1.webp">
                     </div>
                     <div class="col-sm-4 images-col">
-                        <img class="landing-page-images" src="./images/2.jpg">
+                        <img class="landing-page-images" src="./images/2.webp">
                     </div>
                     <div class="col-sm-4 images-col">
-                        <img class="landing-page-images" src="./images/3.jpg">
+                        <img class="landing-page-images" src="./images/3.webp">
                     </div>
                 </div>
                 <div class="row images-row">
                     <div class="col-sm-6 images-col">
-                        <img class="landing-page-images" src="./images/4.jpg">
+                        <img class="landing-page-images" src="./images/4.webp">
                     </div>
                     <div class="col-sm-6 images-col">
-                        <img class="landing-page-images" src="./images/5.jpg">
+                        <img class="landing-page-images" src="./images/5.webp">
                     </div>
                 </div>
             </div>

@@ -395,6 +395,7 @@ canvas {
 #retrieveNotifications {
     border: 0px;
     background-color: transparent;
+    cursor: pointer;
 }
 
 @media (max-width: 576px){.modal-dialog.modal-dialog-slideout {width: 80%}}

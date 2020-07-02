@@ -244,7 +244,7 @@ const addAnotherEmailField = () => {
     input2.placeholder = 'Enter additional email 3';	
     input2.type = 'text';	
     input2.id = 'UPAdditionalEmail3';	
-    input.title = ' Please enter a email address in this format: name@example.com.';
+    input2.title = ' Please enter a email address in this format: name@example.com.';
     div.appendChild(input2);
     document.getElementById('additionalEmailBtn').innerHTML = '';
 }
@@ -365,8 +365,10 @@ export const addEventUPSubmit = () => {
         if(hasError) return false;
         let formData = {};
         formData['RcrtUP_Fname_v1r0'] = document.getElementById('UPFirstName').value;
+        formData['query.firstName'] = document.getElementById('UPFirstName').value.toLowerCase();
         formData['RcrtUP_Minitial_v1r0'] = document.getElementById('UPMiddleInitial').value;
         formData['RcrtUP_Lname_v1r0'] = document.getElementById('UPLastName').value;
+        formData['query.lastName'] = document.getElementById('UPLastName').value.toLowerCase();
         if(document.getElementById('UPSuffix').value) formData['RcrtUP_Suffix_v1r0'] = document.getElementById('UPSuffix').value;
         let month = document.getElementById('UPMonth').value;
 
@@ -389,10 +391,11 @@ export const addEventUPSubmit = () => {
         });
 
         // Contact Information
-
+        const allPhoneNo = [];
         // Mobile phone
         if(document.getElementById('UPPhoneNumber11').value && document.getElementById('UPPhoneNumber12').value && document.getElementById('UPPhoneNumber13').value) {
             formData['RcrtUP_Phone1_v1r0'] = `${document.getElementById('UPPhoneNumber11').value}${document.getElementById('UPPhoneNumber12').value}${document.getElementById('UPPhoneNumber13').value}`;
+            allPhoneNo.push(`${document.getElementById('UPPhoneNumber11').value}${document.getElementById('UPPhoneNumber12').value}${document.getElementById('UPPhoneNumber13').value}`);
         }
         const voiceMailPermission = document.getElementsByName('voiceMailPermission1');
         Array.from(voiceMailPermission).forEach(radioBtn => {
@@ -406,18 +409,35 @@ export const addEventUPSubmit = () => {
         // Home phone
         if(document.getElementById('UPPhoneNumber21').value && document.getElementById('UPPhoneNumber22').value && document.getElementById('UPPhoneNumber23').value) {
             formData['RcrtUP_Phone2_v1r0'] = `${document.getElementById('UPPhoneNumber21').value}${document.getElementById('UPPhoneNumber22').value}${document.getElementById('UPPhoneNumber23').value}`;
+            allPhoneNo.push(`${document.getElementById('UPPhoneNumber21').value}${document.getElementById('UPPhoneNumber22').value}${document.getElementById('UPPhoneNumber23').value}`)
         }
         const voiceMailPermission2 = document.getElementsByName('voiceMailPermission2');
         Array.from(voiceMailPermission2).forEach(radioBtn => {
             if(radioBtn.checked) formData['RcrtUP_VMPerm2_v1r0'] = radioBtn.value;
         });
-        // Email
-        if(document.getElementById('UPEmail').value) formData['RcrtUP_Email1_v1r0'] = document.getElementById('UPEmail').value;
+        if(allPhoneNo.length > 0) formData['query.allPhoneNo'] = allPhoneNo
 
-        if(document.getElementById('UPEmail2').value) formData['RcrtUP_Email2_v1r0'] = document.getElementById('UPEmail2').value;
-        if(document.getElementById('UPAdditionalEmail2') && document.getElementById('UPAdditionalEmail2').value) formData['RcrtUP_Email3_v1r0'] = document.getElementById('UPAdditionalEmail2').value;
-        if(document.getElementById('UPAdditionalEmail3') && document.getElementById('UPAdditionalEmail3').value) formData['RcrtUP_Email4_v1r0'] = document.getElementById('UPAdditionalEmail3').value;
-        
+        // Email
+        const allEmails = [];
+        if(document.getElementById('UPEmail').value) {
+            formData['RcrtUP_Email1_v1r0'] = document.getElementById('UPEmail').value;
+            allEmails.push(document.getElementById('UPEmail').value.toLowerCase())
+        }
+
+        if(document.getElementById('UPEmail2').value) {
+            formData['RcrtUP_Email2_v1r0'] = document.getElementById('UPEmail2').value;
+            allEmails.push(document.getElementById('UPEmail2').value.toLowerCase())
+        }
+        if(document.getElementById('UPAdditionalEmail2') && document.getElementById('UPAdditionalEmail2').value) {
+            formData['RcrtUP_Email3_v1r0'] = document.getElementById('UPAdditionalEmail2').value;
+            allEmails.push(document.getElementById('UPAdditionalEmail2').value.toLowerCase())
+        }
+        if(document.getElementById('UPAdditionalEmail3') && document.getElementById('UPAdditionalEmail3').value) {
+            formData['RcrtUP_Email4_v1r0'] = document.getElementById('UPAdditionalEmail3').value;
+            allEmails.push(document.getElementById('UPAdditionalEmail3').value.toLowerCase())
+        }
+        if(allEmails.length > 0) formData['query.allEmails'] = allEmails;
+
         // Preferred method of contact
         if(document.getElementsByName('methodOfContact')){
             Array.from(document.getElementsByName('methodOfContact')).forEach(radioBtn => {

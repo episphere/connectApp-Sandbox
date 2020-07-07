@@ -296,6 +296,11 @@ export const addEventUPSubmit = () => {
                 focus = false;
                 hasError = true;
             }
+            if(element.type === 'checkbox' && !element.checked && element.hidden === false){
+                errorMessage(element.id, `${element.dataset.errorRequired}`, focus);
+                focus = false;
+                hasError = true;
+            }
         });
         let radioChecked = false;
         Array.from(radios).forEach(element => {
@@ -517,7 +522,7 @@ const openModal = () => {
     document.body.removeChild(tmpBtn);
 }
 
-const removeAllErrors = () => {
+export const removeAllErrors = () => {
     const elements = document.getElementsByClassName('form-error');
     Array.from(elements).forEach(element => {
         const errorMsg = element.parentNode;

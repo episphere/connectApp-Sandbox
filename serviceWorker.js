@@ -3,12 +3,14 @@ importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/7.14.2/firebase-messaging.js');
 
 firebase.initializeApp({
-    apiKey: "AIzaSyDe3Ewzl4x7hEX30EiQJ0tvXBtzd2Hghiw",
-    authDomain: "nih-nci-dceg-episphere-dev.firebaseapp.com",
-    projectId: "nih-nci-dceg-episphere-dev",
-    storageBucket: "nih-nci-dceg-episphere-dev.appspot.com",
-    messagingSenderId: "1061219778575",
-    appId: "1:1061219778575:web:c9f40bbc7ec2cdccc5637a"
+    apiKey: "AIzaSyCoz1UxNYE53ujAkXysPTSEA-IDU9utcNQ",
+    authDomain: "nih-nci-dceg-connect-dev.firebaseapp.com",
+    databaseURL: "https://nih-nci-dceg-connect-dev.firebaseio.com",
+    projectId: "nih-nci-dceg-connect-dev",
+    storageBucket: "nih-nci-dceg-connect-dev.appspot.com",
+    messagingSenderId: "1061430463455",
+    appId: "1:1061430463455:web:948e929b4b47dd0909926a",
+    measurementId: "G-HNEN7DH59R"
 });
 
 const messaging = firebase.messaging();
@@ -44,7 +46,7 @@ registerRoute(/\.(?:png|jpg|jpeg|svg|gif|ico|webp)$/,
 );
 
 registerRoute(
-    new RegExp('https://us-central1-nih-nci-dceg-episphere-dev.cloudfunctions.net/.+'),
+    new RegExp('https://us-central1-nih-nci-dceg-connect-dev.cloudfunctions.net/.+'),
     new NetworkFirst({
         cacheName: 'api-cache',
         plugins: [
@@ -61,7 +63,7 @@ const bgSyncPlugin = new BackgroundSyncPlugin('ConnectAppBgSync', {
 });
 
 registerRoute(
-    new RegExp('https://us-central1-nih-nci-dceg-episphere-dev.cloudfunctions.net/.+'),
+    new RegExp('https://us-central1-nih-nci-dceg-connect-dev.cloudfunctions.net/.+'),
     new NetworkOnly({
       plugins: [bgSyncPlugin]
     }),

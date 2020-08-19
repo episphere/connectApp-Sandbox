@@ -5,7 +5,7 @@ export const renderAgreements = async () => {
     showAnimation();
     const myData = await getMyData();
     let template = '<div class="row"><h3>Consent to participate in Connect Cohort Study</h3></div>';
-    if(myData.code === 200 && myData.data['919254129'] !== undefined && myData.data['919254129'] === 1){
+    if(myData.code === 200 && myData.data['919254129'] !== undefined && myData.data['919254129'] === 353358909){
         template += `
             <div class="row">
                 <div class="col topic">Name</div>

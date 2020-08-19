@@ -1,4 +1,4 @@
-import { showAnimation, hideAnimation, getMyData, allStates, storeResponse, toggleDarkMode, getConceptVariableName } from "../shared.js";
+import { showAnimation, hideAnimation, getMyData, storeResponse, toggleDarkMode, getConceptVariableName } from "../shared.js";
 
 export const renderSettingsPage = async () => {
     showAnimation();
@@ -105,7 +105,7 @@ export const renderSettingsPage = async () => {
                 <div class="col data">Mailing address</div>
                 <div class="col">
                     ${userData['521824358']} ${userData['442166669'] ? userData['442166669'] : ''}</br>
-                    ${userData['703385619']} ${Object.keys(allStates)[Object.values(allStates).indexOf(parseInt(userData['634434746']))]} ${userData['892050548']}
+                    ${userData['703385619']} ${userData['634434746']} ${userData['892050548']}
                 </div>
             </div>
             <div class="row settings-header">

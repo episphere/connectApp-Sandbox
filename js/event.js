@@ -1,4 +1,4 @@
-import { allStates, allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications, removeActiveClass, toggleNavbarMobileView, toggleDarkMode } from "./shared.js";
+import { allCountries, dataSavingBtn, storeResponse, validatePin, generateNewToken, showAnimation, hideAnimation, sites, errorMessage, BirthMonths, getAge, getMyData, retrieveNotifications, removeActiveClass, toggleNavbarMobileView, toggleDarkMode } from "./shared.js";
 import { initializeCanvas, addEventConsentSubmit, consentTemplate } from "./pages/consent.js";
 import { heardAboutStudy, healthCareProvider } from "./pages/healthCareProvider.js";
 import { myToDoList } from "./pages/myToDoList.js";
@@ -52,9 +52,7 @@ export const addEventAddressAutoComplete = (id, country) => {
             });
             UPAddress1Line1.value = addressLine1;
             UPAddress1City.value = addressCity;
-            const lowerCaseStates = Object.keys(allStates).map(s => s.trim().toLowerCase());
-            const stateValue = lowerCaseStates.indexOf(addressState.trim().toLowerCase()) + 1;
-            UPAddress1State.value = stateValue === 0 ? 52 : stateValue;
+            UPAddress1State.value = addressState;
             UPAddress1Zip.value = addressZip;
             
             if(country){
@@ -679,7 +677,7 @@ const verifyUserDetails = (formData) => {
 
         <div class="row">
             <div class="col">State</div>
-            <div class="col">${Object.keys(allStates)[Object.values(allStates).indexOf(parseInt(formData['634434746']))]}</div>
+            <div class="col">${formData['634434746']}</div>
         </div>
 
         <div class="row">

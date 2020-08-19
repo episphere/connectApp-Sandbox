@@ -328,7 +328,7 @@ export const renderPhoneNumber = (number) => {
 const renderStates = () => {
     let options = '';
     for(const state in allStates){
-        options += `<option class="option-dark-mode" value="${allStates[state]}">${state}</option>`
+        options += `<option class="option-dark-mode" value="${state}">${state}</option>`
     }
     return options;
 }

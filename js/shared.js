@@ -703,7 +703,7 @@ export const toggleNavbarMobileView = () => {
     }
 }
 
-export const getConceptVariableName = (conceptId) => {
+export const getConceptVariableName = async (conceptId) => {
     const response = await fetch(`https://raw.githubusercontent.com/episphere/conceptGithubActions/master/jsons/${conceptId}.json`);
     return (await response.json()).variableName;
 }

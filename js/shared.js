@@ -702,3 +702,13 @@ export const toggleNavbarMobileView = () => {
         if(!btn[0].classList.contains('collapsed')) btn[0].click();
     }
 }
+
+export const suffix = {
+    '612166858': 'Jr.',
+    '255907182': 'Sr.',
+    '226924545': 'I',
+    '270793412': 'II',
+    '959021713': 'III',
+    '643664527': '2nd',
+    '537892528': '3rd'
+}

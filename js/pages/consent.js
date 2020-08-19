@@ -125,13 +125,13 @@ const consentSubmit = async e => {
     const CSLastName = document.getElementById('CSLastName');
     let hasError = false;
     let focus = true;
-    if(!/^[A-Za-z]+$/.test(CSFirstName.value)) {
+    if(!/^[A-Za-z ]+$/.test(CSFirstName.value)) {
         const msg = 'Your first name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters.';
         errorMessageConsent('CSFirstName', msg, focus)
         focus = false;
         hasError = true;
     }
-    if(!/^[A-Za-z]+$/.test(CSLastName.value)) {
+    if(!/^[A-Za-z ]+$/.test(CSLastName.value)) {
         const msg = 'Your last name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters.';
         errorMessageConsent('CSLastName', msg, focus)
         focus = false;

@@ -261,7 +261,7 @@ export const addEventUPSubmit = () => {
             if(element.value){
                 const validationPattern = element.dataset.validationPattern;
                 if(validationPattern && validationPattern === 'alphabets') {
-                    if(!/^[A-Za-z]+$/.test(element.value)) {
+                    if(!/^[A-Za-z ]+$/.test(element.value)) {
                         errorMessage(element.id, element.dataset.errorValidation, focus)
                         focus = false;
                         hasError = true;

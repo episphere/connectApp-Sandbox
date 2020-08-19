@@ -367,11 +367,11 @@ export const addEventUPSubmit = () => {
         }
         if(hasError) return false;
         let formData = {};
-        formData['399159511'] = document.getElementById('UPFirstName').value;
-        formData['query.firstName'] = document.getElementById('UPFirstName').value.toLowerCase();
-        formData['231676651'] = document.getElementById('UPMiddleInitial').value;
-        formData['996038075'] = document.getElementById('UPLastName').value;
-        formData['query.lastName'] = document.getElementById('UPLastName').value.toLowerCase();
+        formData['399159511'] = document.getElementById('UPFirstName').value.trim();
+        formData['query.firstName'] = document.getElementById('UPFirstName').value.trim().toLowerCase();
+        formData['231676651'] = document.getElementById('UPMiddleInitial').value.trim();
+        formData['996038075'] = document.getElementById('UPLastName').value.trim();
+        formData['query.lastName'] = document.getElementById('UPLastName').value.trim().toLowerCase();
         if(document.getElementById('UPSuffix').value) formData['506826178'] = parseInt(document.getElementById('UPSuffix').value);
         let month = document.getElementById('UPMonth').value;
 

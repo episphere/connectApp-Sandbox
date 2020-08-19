@@ -1,4 +1,4 @@
-import { showAnimation, hideAnimation, getMyData, allStates, storeResponse, toggleDarkMode, suffix } from "../shared.js";
+import { showAnimation, hideAnimation, getMyData, allStates, storeResponse, toggleDarkMode, getConceptVariableName } from "../shared.js";
 
 export const renderSettingsPage = async () => {
     showAnimation();
@@ -25,7 +25,7 @@ export const renderSettingsPage = async () => {
             </div>
             <div class="row">
                 <div class="col data">Suffix</div>
-                <div class="col"><input class="form-control" readonly value="${userData['506826178'] ? `${suffix[userData['506826178']]}` :  ``}"></div>
+                <div class="col"><input class="form-control" readonly value="${userData['506826178'] ? `${await getConceptVariableName(userData['506826178'])}` :  ``}"></div>
             </div>
             <div class="row"><div class="col"><strong>Date of birth</strong></div></div>
             <div class="row">

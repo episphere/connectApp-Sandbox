@@ -703,12 +703,7 @@ export const toggleNavbarMobileView = () => {
     }
 }
 
-export const suffix = {
-    '612166858': 'Jr.',
-    '255907182': 'Sr.',
-    '226924545': 'I',
-    '270793412': 'II',
-    '959021713': 'III',
-    '643664527': '2nd',
-    '537892528': '3rd'
+export const getConceptVariableName = (conceptId) => {
+    const response = await fetch(`https://raw.githubusercontent.com/episphere/conceptGithubActions/master/jsons/${conceptId}.json`);
+    return (await response.json()).variableName;
 }

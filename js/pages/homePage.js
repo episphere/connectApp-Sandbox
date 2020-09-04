@@ -3,89 +3,83 @@ export const homePage = async () => {
     const isIE = /*@cc_on!@*/false || !!document.documentMode;
     mainContent.innerHTML = `
         ${isIE ? `<span class="not-compatible">Connect web application is not compatible with Internet Explorer, please use Chrome, Safari, Firefox or Edge</span>` : ``}
-        <div class="row">
-            <div class="col-sm-9 images-grid">
-                <div class="row images-row">
-                    <div class="col-sm-4 images-col">
-                        <img class="landing-page-images" src="./images/1.webp">
-                    </div>
-                    <div class="col-sm-4 images-col">
-                        <img class="landing-page-images" src="./images/2.webp">
-                    </div>
-                    <div class="col-sm-4 images-col">
-                        <img class="landing-page-images" src="./images/3.webp">
-                    </div>
-                </div>
-                <div class="row images-row">
-                    <div class="col-sm-6 images-col">
-                        <img class="landing-page-images" src="./images/4.webp">
-                    </div>
-                    <div class="col-sm-6 images-col">
-                        <img class="landing-page-images" src="./images/5.webp">
-                    </div>
-                </div>
+        <div class="row homepage-slider">
+            <div class="col">
+                <img src="./images/newImages/4.PNG" height="400px" width="100%">
             </div>
-            <div class="col-sm-3 join-now-col" id="joinNow"></div>
         </div>
-        <div class="row" id="siteLogos">
-            <div class="col"><img src="./images/Chicago Vector.png" class="site-logo"></div>
-            <div class="col"><img src="./images/hf vector.png" class="site-logo"></div>
-            <div class="col"><img src="./images/hp vector.png" class="site-logo"></div>
-            <div class="col"><img src="./images/kp vector.png" class="site-logo"></div>
-            <div class="col"><img src="./images/marsh vector.png" class="site-logo"></div>
-            <div class="col"><img src="./images/norc vector.png" class="site-logo"></div>
-            <div class="col"><img src="./images/sanford vector.png" class="site-logo"></div>
-        </div>
-        <div class="row">
-            <div class="col-md-3 about-cancer">
-                <div class="row">
-                    <span class="heading">Advancing Cancer Research</span> <i class="fab fa-searchengin"></i>
-                </div>
-                <div class="row">
-                    <span class="description">
-                        The Connect Study wants to better understand:
-                        <ul class="list">
-                            <li><strong>What causes cancer,</strong></li>
-                            <li><strong>Ways to prevent cancer, and</strong></li>
-                            <li><strong>How to improve early detection of cancer.</strong></li>
-                        </ul>
+        <div class="row what-study-row">
+            <div class="col"><img src="./images/newImages/2.PNG" height="380px" width="440px"></div>
+            <div class="align-left d-flex justify-content-center align-items-center">
+                <div>
+                    <span class="what-study-heading"><strong>What the study is</strong></span></br>
+                    <span class="what-study-content">
+                        Connect for Cancer Prevention is one of the largest</br>
+                        and most important cancer studies in the United States.</br>
+                        By joining Connect, you will be a part of a community of researchers </br>
+                        and 200,000 people from around the country, who, like you, </br>
+                        want to contribute to cancer research.
                     </span>
                 </div>
             </div>
-            <div class="col-md-3 about-cancer">
-                <div class="row">
-                    <span class="heading">Why should I join Connect?</span> <i class="fas fa-users"></i>
+        </div>
+        <div class="how-study-row">
+            <div class="row">
+                <div class="align-left d-flex justify-content-center align-items-center">
+                    <div>
+                        <span class="how-study-heading"><strong>How you can help</strong></span></br>
+                        <span class="how-study-content">
+                            While researchers have made important advances,</br>
+                            there is more to learn to ease the burden of cancer</br>
+                            on our families and our communities. Your </br>
+                            participation in this study will give scientist the </br>
+                            ability to look at how the way we live, our genes, </br>
+                            and our medical history are connected to cancer.
+                        </span>
+                    </div>
                 </div>
-                <div class="row">
-                    <span class="description">
-                        <strong>Being a part of Connect means you are contributing to the future of cancer prevention for our families and communities.</strong></br>
-                        With your help, Connect will be one of the largest and most important cancer studies in the United States.    
-                    </span>
-                </div>
+                <div class="col align-right"><img src="./images/newImages/3.PNG" height="380px" width="440px"></div>
             </div>
-            <div class="col-md-3 about-cancer">
-                <div class="row">
-                    <span class="heading">Who can join Connect?</span> <i class="fas fa-female"></i><i class="fas fa-male"></i>
-                </div>
-                <div class="row">
-                    <span class="description">
-                        <ul class="list">
-                            <li><strong>Men and women between the ages of 40 and 65</strong></li>
-                            <li><strong>Current (patients/members) of participating sites</strong></li>
-                            <li><strong>No previous history of cancer</strong> (other than non-melanoma skin cancer)</li>
-                        </ul>
-                    </span>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="row">
-                    <span class="heading">Share Connect</span> <i class="fas fa-share"></i>
-                </div>
-                <div class="row">
-                    <img class="bar-code-image" src="./images/connectApp.png">
+        </div>
+        <div class="row who-can-join-heading" style="margin-top:30px">
+            <div class="col align-center">Who can join</div>
+        </div>
+        <div class="row" style="margin:30px 0px">
+            <div class="col-md-2"></div>
+            <div class="col-md-1"><img src="./images/newImages/5.PNG" height="80px" width="100px"></div>
+            <div class="col-md-3">40-65 years old and </br> have <strong>never been diagnosed with </br> most kinds of invasive cancers</strong></div>
+            <div class="col-md-1"><img src="./images/newImages/6.PNG" height="80px" width="100px"></div>
+            <div class="col-md-3">Member or patient od </br> have <strong>participanting health care systems</strong></div>
+            <div class="col-md-2"></div>
+        </div>
+        <div class="learning-from-everyone">
+            <div class="row">
+                <div class="col"><img src="./images/newImages/7.PNG" height="380px" width="440px"></div>
+                <div class="align-left d-flex justify-content-center align-items-center">
+                    <div>
+                        <span class="what-study-heading"><strong>Learning from everyone</strong></span></br>
+                        <span class="what-study-content">
+                            Connect for Cancer Prevention will be most</br>
+                            successful if a diverse group of participants from</br>
+                            different environments and backgrounds join. This </br>
+                            allows all people to benefit from our discoveries.
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="participating-health-care-systems">
+            <div class="row who-can-join-heading" style="margin-top:30px">
+                <div class="col align-center">Participanting Healt Care Systems</div>
+            </div>
+            <div class="row who-can-join-heading" style="margin-top:30px">
+                <div class="col-md-1"></div>
+                <div class="col-md-10"><img src="./images/newImages/8.PNG" height="200px" width="100%"></div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+
+        
     `;
 }
 

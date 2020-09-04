@@ -9,7 +9,7 @@
 
 #root {
     height: 100%;
-    margin: 1rem 0;
+    border-top: 1px solid #ffffff;
 }
 
 #footer {
@@ -436,17 +436,23 @@ canvas {
     padding: 0px !important;
 }
 
-.current-page {
+/* .current-page {
     border-bottom: 2px solid #918c8d !important;
-}
+} */
 
 .nav-link {
-    color: #000000 !important;
+    color: #ffffff !important;
+    font-weight: bold !important;
 }
 
-.navbar-nav:hover {
-    border-bottom: 2px solid #bc1f40 !important;
+.join-study-btn {
+    background-color: #ffbf17 !important;
+    color: #1c4f6e !important;
 }
+
+/* .navbar-nav:hover {
+    border-bottom: 2px solid #bc1f40 !important;
+} */
 
 .btn-agreement {
     border: 0px;
@@ -598,4 +604,98 @@ input:checked + .slider:before {
 
 .error-text {
     padding-left: 5px !important;
+}
+
+.connect-container {
+    margin: 0 40px !important;
+}
+
+.nci-logo-div {
+    min-height: 50px;
+    background-color: #1c5d86;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    border-bottom: 1px solid #ffffff;
+}
+
+.search-input {
+    background-color: #1c5d86 !important;
+    color: #ffffff !important;
+    border-radius: 0px !important;
+}
+
+.search-input::placeholder {
+    color: #ffffff !important;
+}
+
+.nci-gov {
+    text-align: center;
+    font-size: 12px;
+}
+
+.fixed-top {
+    position: relative !important;
+}
+
+#joinNow {
+    background-color: #2a72a5 !important;
+}
+
+.custom-menu-color {
+    background-color: #2a72a5 !important;
+    color: #ffffff !important;
+}
+
+.homepage-slider {
+    background-color: #2a72a5 !important;
+    padding: 0px 60px !important;
+    margin: 0px !important;
+}
+
+.nci-banne {
+    margin: 0px 70px;
+}
+
+.what-study-heading {
+    font-weight: bold;
+    font-size: 30px;
+    color: #595959;
+}
+
+.who-can-join-heading {
+    font-weight: bold;
+    font-size: 30px;
+    color: #595959;
+}
+
+.how-study-heading {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.what-study-content, .how-study-content {
+    font-size: 18px;
+}
+
+.what-study-row {
+    margin: 0px 200px !important;
+}
+
+.how-study-row {
+    padding: 50px 200px !important;
+    background-color: #2a72a5 !important;
+    color: #ffffff !important
+}
+
+.align-right {
+    text-align: right;
+}
+
+.learning-from-everyone {
+    background-color: #ffbf17 !important;
+    padding: 50px 200px !important;
+}
+
+.participating-health-care-systems {
+    margin-bottom: 30px;
 }

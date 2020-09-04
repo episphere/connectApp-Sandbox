@@ -62,30 +62,36 @@ export const userNavBar = () => {
 
 export const homeNavBar = () => {
     return `
-        <div class="navbar-nav">
+        <div class="navbar-nav col-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#" id="home" title="Home"><i class="fas fa-home"></i> Home</a>
+                <a class="nav-link" href="#" id="home" title="Home">WHO CAN JOIN</a>
             </li>
         </div>
-        <div class="navbar-nav">
+        <div class="navbar-nav col-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#sign_in" id="signIn" title="Sign In"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                <a class="nav-link" href="#" title="Home">HOW IT WORKS</a>
             </li>
         </div>
-        <div class="navbar-nav">
+        <div class="navbar-nav col-auto">
             <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://github.com/episphere/connect/issues" title="Please create an issue if you encounter any"><i class="fas fa-bug"></i> Report issue</a>
+                <a class="nav-link" href="#" title="Home">YOUR PRIVACY</a>
             </li>
         </div>
-        <div class="navbar-nav">
+        <div class="navbar-nav col-auto">
             <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://github.com/episphere/connect/projects/1" title="GitHub Projects page"><i class="fas fa-tasks"></i> GitHub Projects</a>
+                <a class="nav-link" href="#" title="Home">ABOUT THE STUDY</a>
             </li>
         </div>
-        <div class="navbar-nav">
+        <div class="navbar-nav col-auto">
             <li class="nav-item">
-                <a target="_blank" class="nav-link" href="https://gitter.im/episphere/connect" title="Chat with us"><i class="fas fa-comments"></i> Chat with us</a>
+                <a class="btn join-study-btn nav-link" href="#sign_in" id="signIn" title="Sign In"><i class="fas fa-sign-in-alt"></i> Join the Study</a>
             </li>
         </div>
+        <div class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <input type="text" class="form-control search-input" placeholder="Search" />
+            </li>
+        </div>
+        
     `;
 }

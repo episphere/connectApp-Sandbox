@@ -623,6 +623,7 @@ input:checked + .slider:before {
     background-color: #1c5d86 !important;
     color: #ffffff !important;
     border-radius: 0px !important;
+    margin: 1px 0px !important;
 }
 
 .search-input::placeholder {
@@ -651,10 +652,6 @@ input:checked + .slider:before {
     background-color: #2a72a5 !important;
     padding: 0px 60px !important;
     margin: 0px !important;
-}
-
-.nci-banne {
-    margin: 0px 70px;
 }
 
 .what-study-heading {
@@ -703,4 +700,8 @@ input:checked + .slider:before {
 
 .landing-page-images {
     max-height: 350px;
+}
+
+.navbar-toggler {
+    border-color: #ffffff !important;
 }

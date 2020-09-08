@@ -705,3 +705,7 @@ input:checked + .slider:before {
 .navbar-toggler {
     border-color: #ffffff !important;
 }
+
+.nci-connect-logo {
+    padding-left: 0px !important;
+}

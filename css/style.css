@@ -608,6 +608,7 @@ input:checked + .slider:before {
 
 .connect-container {
     margin: 0 40px !important;
+    min-height: calc(100vh - 140px);
 }
 
 .nci-logo-div {

@@ -650,7 +650,6 @@ input:checked + .slider:before {
 
 .homepage-slider {
     background-color: #2a72a5 !important;
-    padding: 0px 60px !important;
     margin: 0px !important;
 }
 

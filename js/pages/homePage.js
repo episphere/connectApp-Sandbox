@@ -4,9 +4,11 @@ export const homePage = async () => {
     mainContent.innerHTML = `
         ${isIE ? `<span class="not-compatible">Connect web application is not compatible with Internet Explorer, please use Chrome, Safari, Firefox or Edge</span>` : ``}
         <div class="row homepage-slider">
-            <div class="col">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-10">
                 <img src="./images/newImages/4.PNG" height="100%" width="100%">
             </div>
+            <div class="col-lg-1"></div>
         </div>
         <div class="row what-study-row">
             <div class="col-lg-2"></div>

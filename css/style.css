@@ -709,3 +709,7 @@ input:checked + .slider:before {
 .nci-connect-logo {
     padding-left: 0px !important;
 }
+
+.nci-connect-logo-width {
+    width: inherit;
+}

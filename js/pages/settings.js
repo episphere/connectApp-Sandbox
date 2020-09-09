@@ -3,7 +3,11 @@ import { showAnimation, hideAnimation, getMyData, storeResponse, toggleDarkMode,
 export const renderSettingsPage = async () => {
     showAnimation();
     const myData = await getMyData();
-    let template = '<h3>Settings</h3>'
+    let template = `<div class="row setting-div">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+    
+            <h3>Settings</h3>`
     if(myData.code === 200 && myData.data['699625233'] !== undefined && myData.data['699625233'] === 353358909){
         const userData = myData.data;
         template += `
@@ -141,7 +145,7 @@ export const renderSettingsPage = async () => {
     else {
         template += 'Settings not available';
     }
-
+    template +=`</div><div class="col-lg-2"></div></div>`
     document.getElementById('root').innerHTML = template;
     hideAnimation();
     const element = document.getElementById('darkMode');

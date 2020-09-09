@@ -4,76 +4,91 @@ import { removeAllErrors } from "../event.js";
 
 export const consentTemplate = () => {
     return ` 
-        <div class="row">Download consent form:&nbsp<a href="./consent_draft.pdf" title="Download consent form" data-toggle="tooltip" download="coonect_consent.pdf"><i class="fas fa-file-download"></i></a></div>
-        <div class="row" id="canvasContainer"></div>
-        <form id="consentForm" method="POST">
-            <div class="row">
-                <label class="color-red"><input type="checkbox" required> I have read the explanation about this study and have been given the opportunity to discuss it and ask questions. I consent to participate in this study.<span class="required">*</span></label>
-            </div>
-            <div class="row">
-                <div class="col form-group consent-form">
-                    <label class="consent-form-label">
-                        First name<span class="required">*</span>
-                    </label>
-                    <input required type="text" autocomplete="off" id="CSFirstName" class="form-control col-md-5" placeholder="Enter first name">
-                </div>
-                <div class="col form-group consent-form">
-                    <label class="consent-form-label">
-                        Last name<span class="required">*</span>
-                    </label>
-                    <input required type="text" autocomplete="off" id="CSLastName" class="form-control col-md-5" placeholder="Enter last name">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col form-group consent-form">
-                    <label class="consent-form-label">
-                        Digital signature<span class="required">*</span>
-                        <input disabled required type="text" id="CSSign" class="form-control consentSign">
-                    </label>
-                </div>
-                <div class="col form-group consent-form">
-                    <label class="consent-form-label">
-                        Today's date: 
-                    </label>
-                    <span id="CSDate">${todaysDate()}</span>
-                </div>
-            </div>
-            ${localStorage.eligibilityQuestionnaire ? JSON.parse(localStorage.eligibilityQuestionnaire)['827220437'] === 809703864 ? `
-                <div class="row">
-                    <div class="col form-group consent-form">
-                        <label class="consent-form-label">
-                            Witness first name<span class="required">*</span>
-                            <input required type="text" autocomplete="off" id="CSWFirstName" class="form-control" placeholder="Enter first name">
-                        </label>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">Download consent form:&nbsp<a href="./consent_draft.pdf" title="Download consent form" data-toggle="tooltip" download="coonect_consent.pdf"><i class="fas fa-file-download"></i></a></div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8" id="canvasContainer"></div>
+            <div class="col-lg-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <form id="consentForm" method="POST">
+                    <div class="row">
+                        <label class="color-red"><input type="checkbox" required> I have read the explanation about this study and have been given the opportunity to discuss it and ask questions. I consent to participate in this study.<span class="required">*</span></label>
                     </div>
-                    <div class="col form-group consent-form">
-                        <label class="consent-form-label">
-                            Witness last name<span class="required">*</span>
-                            <input required type="text" autocomplete="off" id="CSWLastName" class="form-control" placeholder="Enter last name">
-                        </label>
+                    <div class="row">
+                        <div class="col form-group consent-form">
+                            <label class="consent-form-label">
+                                First name<span class="required">*</span>
+                            </label>
+                            <input required type="text" autocomplete="off" id="CSFirstName" class="form-control col-md-5" placeholder="Enter first name">
+                        </div>
+                        <div class="col form-group consent-form">
+                            <label class="consent-form-label">
+                                Last name<span class="required">*</span>
+                            </label>
+                            <input required type="text" autocomplete="off" id="CSLastName" class="form-control col-md-5" placeholder="Enter last name">
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col form-group consent-form">
-                        <label class="consent-form-label">
-                            Witness digital signature<span class="required">*</span>
-                            <input disabled required type="text" id="CSWSign" class="form-control consentSign">
-                        </label>
+                    <div class="row">
+                        <div class="col form-group consent-form">
+                            <label class="consent-form-label">
+                                Digital signature<span class="required">*</span>
+                                <input disabled required type="text" id="CSSign" class="form-control consentSign">
+                            </label>
+                        </div>
+                        <div class="col form-group consent-form">
+                            <label class="consent-form-label">
+                                Today's date: 
+                            </label>
+                            <span id="CSDate">${todaysDate()}</span>
+                        </div>
                     </div>
-                    <div class="col form-group consent-form">
-                        <label class="consent-form-label">
-                            Today's date: 
-                        </label>
-                        <span id="CSWDate">${todaysDate()}</span>
+                    ${localStorage.eligibilityQuestionnaire ? JSON.parse(localStorage.eligibilityQuestionnaire)['827220437'] === 809703864 ? `
+                        <div class="row">
+                            <div class="col form-group consent-form">
+                                <label class="consent-form-label">
+                                    Witness first name<span class="required">*</span>
+                                    <input required type="text" autocomplete="off" id="CSWFirstName" class="form-control" placeholder="Enter first name">
+                                </label>
+                            </div>
+                            <div class="col form-group consent-form">
+                                <label class="consent-form-label">
+                                    Witness last name<span class="required">*</span>
+                                    <input required type="text" autocomplete="off" id="CSWLastName" class="form-control" placeholder="Enter last name">
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col form-group consent-form">
+                                <label class="consent-form-label">
+                                    Witness digital signature<span class="required">*</span>
+                                    <input disabled required type="text" id="CSWSign" class="form-control consentSign">
+                                </label>
+                            </div>
+                            <div class="col form-group consent-form">
+                                <label class="consent-form-label">
+                                    Today's date: 
+                                </label>
+                                <span id="CSWDate">${todaysDate()}</span>
+                            </div>
+                        </div>
+                    ` : '' : ''}
+                    <div class="row">
+                        <div class="ml-auto">
+                            <button type="submit" class="btn btn-primary save-data">Submit</button>
+                        </div>
                     </div>
-                </div>
-            ` : '' : ''}
-            <div class="row">
-                <div class="ml-auto">
-                    <button type="submit" class="btn btn-primary save-data">Submit</button>
-                </div>
+                </form>
             </div>
-        </form>
+            <div class="col-lg-2"></div>
+        </div>
+        
     `
 }
 

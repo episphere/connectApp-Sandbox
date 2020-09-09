@@ -712,3 +712,15 @@ input:checked + .slider:before {
 .nci-connect-logo-width {
     width: inherit;
 }
+
+.nav-link {
+    white-space: nowrap;
+}
+
+.request-pin-div, .health-care-div, .heard-about-study-div, .passive-participant-block-div, .setting-div {
+    margin: 2rem 0;
+}
+
+.form-all-content, .health-care-form-all-content {
+    min-height: calc(100vh - 420px);
+}

@@ -6,186 +6,192 @@ export const renderUserProfile = async () => {
     const siteId = myData.data ? myData.data['827220437'] : undefined;
     const mainContent = document.getElementById('root');
     mainContent.innerHTML = `
-        </br>
-        <h2>User profile</h2>
-        Thank you for joining Connect for Cancer Prevention! Before you are officially enrolled, 
-        ${siteId ? sites()[siteId] : ''} will use this information to verify your eligibility. 
-        We respect your privacy and will treat all information as confidential.
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <h2>User profile</h2>
+                Thank you for joining Connect for Cancer Prevention! Before you are officially enrolled, 
+                ${siteId ? sites()[siteId] : ''} will use this information to verify your eligibility. 
+                We respect your privacy and will treat all information as confidential.
+                
+                <form id="userProfileForm" method="POST">
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">First name <span class="required">*</span></label>
+                        <input type="text" value="${myData.data['471168198']}" class="form-control required-field input-validation col-md-4" data-error-required='Please enter your first name.' data-validation-pattern="alphabets" data-error-validation="Your first name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters." id="UPFirstName" placeholder="Enter first name">
+                    </div>
+                    <div class="form-group row" id="firstNameConsistency">
+                        <label class="col-md-4 col-form-label">Verify first name <span class="required">*</span></label>
+                        <input type="checkbox" class="form-control required-field col-custom" data-error-required='Please verify your first name.' id="UPFirstNameVerify">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Middle name</label>
+                            <input type="text" class="form-control input-validation col-md-4" data-validation-pattern="alphabets" data-error-validation="Your middle name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters." id="UPMiddleInitial" placeholder="Enter middle name">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Last name <span class="required">*</span></label>
+                        <input type="text" value="${myData.data['736251808']}" class="form-control required-field input-validation col-md-4" data-error-required='Please enter your last name.' data-validation-pattern="alphabets" data-error-validation="Your last name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters." id="UPLastName" placeholder="Enter last name">
+                    </div>
+                    <div class="form-group row" id="lastNameConsistency">
+                        <label class="col-md-4 col-form-label">Verify last name <span class="required">*</span></label>
+                        <input type="checkbox" class="form-control required-field col-custom" data-error-required='Please verify your last name.' id="UPLastNameVerify">
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Suffix</label>
+                        <select class="form-control col-md-4" id="UPSuffix">
+                            <option value="">-- Select suffix --</option>
+                            <option value="612166858">Jr.</option>
+                            <option value="255907182">Sr.</option>
+                            <option value="226924545">I</option>
+                            <option value="270793412">II</option>
+                            <option value="959021713">III</option>
+                            <option value="643664527">2nd</option>
+                            <option value="537892528">3rd</option>
+                        </select>
+                    </div>
+                    
+                    <strong>What is your date of birth?</strong>
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Month <span class="required">*</span></label>
+                        <select id="UPMonth" class="form-control required-field col-md-4" data-error-required='Please select your birth month.'>
+                            <option class="option-dark-mode" value="">-- Select birth month -- </option>
+                            <option class="option-dark-mode" value="01">1 - January</option>
+                            <option class="option-dark-mode" value="02">2 - February</option>
+                            <option class="option-dark-mode" value="03">3 - March</option>
+                            <option class="option-dark-mode" value="04">4 - April</option>
+                            <option class="option-dark-mode" value="05">5 - May</option>
+                            <option class="option-dark-mode" value="06">6 - June</option>
+                            <option class="option-dark-mode" value="07">7 - July</option>
+                            <option class="option-dark-mode" value="08">8 - August</option>
+                            <option class="option-dark-mode" value="09">9 - September</option>
+                            <option class="option-dark-mode" value="10">10 - October</option>
+                            <option class="option-dark-mode" value="11">11 - November</option>
+                            <option class="option-dark-mode" value="12">12 - December</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Day <span class="required">*</span></label>
+                        <select class="form-control required-field col-md-4" data-error-required='Please select your birth day.' id="UPDay"></select>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Year <span class="required">*</span></label>
+                        <input type="text" class="form-control required-field input-validation col-md-4" data-error-required='Please select your birth year.' data-validation-pattern="year" data-error-validation="Your birth year must contain four digits in the YYYY format." maxlength="4" id="UPYear" list="yearsOption" title="Birth year, must be in 1900s" Placeholder="Enter birth year">
+                        <datalist id="yearsOption"></datalist>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">What was your biological sex assigned at birth? <span class="required">*</span> </br>
+                            reference links for user testing <a href="https://www.researchallofus.org/wp-content/themes/research-hub-wordpress-theme/media/2019/02/Basics.pdf" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
+                            <a href="https://transcare.ucsf.edu/guidelines/terminology" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
+                            <a href="https://www.census.gov/content/dam/Census/library/working-papers/2018/adrm/rsm2018-05.pdf" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                        </label>
+                        <div class="btn-group btn-group-toggle col-md-4" id="radioGroup" data-toggle="buttons">
+                            <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="654207589">Male</label>
+                            <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="536341288">Female</label>
+                            <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="576796184">Intersex or other</label>
+                        </div>
+                    </div>
+
+                    <strong>Contact Information</strong>
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">
+                            Mobile phone 
+                        </label>
+                        <div class="btn-group col-md-4" id="mainMobilePhone">
+                            <input type="text" class="form-control" id="UPPhoneNumber11" size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
+                            <input type="text" class="form-control" id="UPPhoneNumber12" size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
+                            <input type="text" class="form-control" id="UPPhoneNumber13" size="4" maxlength="4" Placeholder="9999">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">
+                            Can we leave a voicemail at this number? 
+                        </label>
+                        <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
+                            <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission1" value="353358909">Yes</label>
+                            <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission1" value="104430631">No</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">
+                            Can we text this number? 
+                        </label>
+                        <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
+                            <label class="btn btn-light up-btns"><input type="radio" name="textPermission1" value="353358909">Yes</label>
+                            <label class="btn btn-light up-btns"><input type="radio" name="textPermission1" value="104430631">No</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">
+                            Home phone 
+                        </label>
+                        <div class="btn-group col-md-4" id="mainMobilePhone2">
+                            <input type="text" class="form-control" id="UPPhoneNumber21" pattern="[1-9]{1}[0-9]{2}" title="Only numbers are allowed." size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
+                            <input type="text" class="form-control" id="UPPhoneNumber22" pattern="[0-9]{3}" title="Only numbers are allowed." size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
+                            <input type="text" class="form-control" id="UPPhoneNumber23" pattern="[0-9]{4}" title="Only numbers are allowed." size="4" maxlength="4" Placeholder="9999">
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">
+                            Can we leave a voicemail at this number? 
+                        </label>
+                        <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
+                            <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission2" value="353358909">Yes</label>
+                            <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission2" value="104430631">No</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Preferred Email</label>
+                        <input type="text" class="form-control col-md-4" id="UPEmail" title="Please enter a email address in this format: name@example.com." Placeholder="Enter preferred email"></br>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Retype preferred Email</label>
+                        <input type="text" class="form-control col-md-4" id="confirmUPEmail" title="Please enter a email address in this format: name@example.com." Placeholder="Retype preferred email"></br>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Additional Email</label>
+                        <input type="text" class="form-control col-md-4" id="UPEmail2" title="Please enter a email address in this format: name@example.com." Placeholder="Enter additional email"></br>
+                    </div>
+                    <div id="multipleEmail1"></div>
+                    <div id="multipleEmail2"></div>
+                    <div class="form-group row">
+                        <div class="col-md-4 offset-md-4" id="additionalEmailBtn">
+                            <button type="button" class="btn btn-light" id="addMoreEmail" title="Add more email">Add more <i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div id="preferredEmailPhone"></div>
+
+                    ${renderMailingAddress('', 1, true)}
+
+                    <div class="form-group row">
+                        <label class="col-md-4 col-form-label">Have you ever been diagnosed with cancer (other than non-melanoma skin cancer)?</label>
+                        <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
+                            <label class="btn btn-light up-btns" id="UPCancer1Btn"><input type="radio" name="cancerHistory" id="UPCancer1" value="353358909">Yes</label>
+                            <label class="btn btn-light up-btns" id="UPCancer2Btn"><input type="radio" name="cancerHistory" id="UPCancer2" value="104430631">No</label>
+                        </div>
+                    </div>
+
+                    <div id="cancerFollowUp"></div>
+
+                    </br></br>
+                    <div class="row">
+                        <div class="ml-auto">
+                            <button type="submit" class="btn btn-primary save-data">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
         
-        <form id="userProfileForm" method="POST">
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">First name <span class="required">*</span></label>
-                <input type="text" value="${myData.data['471168198']}" class="form-control required-field input-validation col-md-4" data-error-required='Please enter your first name.' data-validation-pattern="alphabets" data-error-validation="Your first name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters." id="UPFirstName" placeholder="Enter first name">
-            </div>
-            <div class="form-group row" id="firstNameConsistency">
-                <label class="col-md-4 col-form-label">Verify first name <span class="required">*</span></label>
-                <input type="checkbox" class="form-control required-field col-custom" data-error-required='Please verify your first name.' id="UPFirstNameVerify">
-            </div>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Middle name</label>
-                    <input type="text" class="form-control input-validation col-md-4" data-validation-pattern="alphabets" data-error-validation="Your middle name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters." id="UPMiddleInitial" placeholder="Enter middle name">
-            </div>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Last name <span class="required">*</span></label>
-                <input type="text" value="${myData.data['736251808']}" class="form-control required-field input-validation col-md-4" data-error-required='Please enter your last name.' data-validation-pattern="alphabets" data-error-validation="Your last name should contain only uppercase and lowercase letters. Please do not use any numbers or special characters." id="UPLastName" placeholder="Enter last name">
-            </div>
-            <div class="form-group row" id="lastNameConsistency">
-                <label class="col-md-4 col-form-label">Verify last name <span class="required">*</span></label>
-                <input type="checkbox" class="form-control required-field col-custom" data-error-required='Please verify your last name.' id="UPLastNameVerify">
-            </div>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Suffix</label>
-                <select class="form-control col-md-4" id="UPSuffix">
-                    <option value="">-- Select suffix --</option>
-                    <option value="612166858">Jr.</option>
-                    <option value="255907182">Sr.</option>
-                    <option value="226924545">I</option>
-                    <option value="270793412">II</option>
-                    <option value="959021713">III</option>
-                    <option value="643664527">2nd</option>
-                    <option value="537892528">3rd</option>
-                </select>
-            </div>
-            
-            <strong>What is your date of birth?</strong>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Month <span class="required">*</span></label>
-                <select id="UPMonth" class="form-control required-field col-md-4" data-error-required='Please select your birth month.'>
-                    <option class="option-dark-mode" value="">-- Select birth month -- </option>
-                    <option class="option-dark-mode" value="01">1 - January</option>
-                    <option class="option-dark-mode" value="02">2 - February</option>
-                    <option class="option-dark-mode" value="03">3 - March</option>
-                    <option class="option-dark-mode" value="04">4 - April</option>
-                    <option class="option-dark-mode" value="05">5 - May</option>
-                    <option class="option-dark-mode" value="06">6 - June</option>
-                    <option class="option-dark-mode" value="07">7 - July</option>
-                    <option class="option-dark-mode" value="08">8 - August</option>
-                    <option class="option-dark-mode" value="09">9 - September</option>
-                    <option class="option-dark-mode" value="10">10 - October</option>
-                    <option class="option-dark-mode" value="11">11 - November</option>
-                    <option class="option-dark-mode" value="12">12 - December</option>
-                </select>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Day <span class="required">*</span></label>
-                <select class="form-control required-field col-md-4" data-error-required='Please select your birth day.' id="UPDay"></select>
-            </div>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Year <span class="required">*</span></label>
-                <input type="text" class="form-control required-field input-validation col-md-4" data-error-required='Please select your birth year.' data-validation-pattern="year" data-error-validation="Your birth year must contain four digits in the YYYY format." maxlength="4" id="UPYear" list="yearsOption" title="Birth year, must be in 1900s" Placeholder="Enter birth year">
-                <datalist id="yearsOption"></datalist>
-            </div>
-            
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">What was your biological sex assigned at birth? <span class="required">*</span> </br>
-                    reference links for user testing <a href="https://www.researchallofus.org/wp-content/themes/research-hub-wordpress-theme/media/2019/02/Basics.pdf" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
-                    <a href="https://transcare.ucsf.edu/guidelines/terminology" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
-                    <a href="https://www.census.gov/content/dam/Census/library/working-papers/2018/adrm/rsm2018-05.pdf" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                </label>
-                <div class="btn-group btn-group-toggle col-md-4" id="radioGroup" data-toggle="buttons">
-                    <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="654207589">Male</label>
-                    <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="536341288">Female</label>
-                    <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="576796184">Intersex or other</label>
-                </div>
-            </div>
-
-            <strong>Contact Information</strong>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">
-                    Mobile phone 
-                </label>
-                <div class="btn-group col-md-4" id="mainMobilePhone">
-                    <input type="text" class="form-control" id="UPPhoneNumber11" size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
-                    <input type="text" class="form-control" id="UPPhoneNumber12" size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
-                    <input type="text" class="form-control" id="UPPhoneNumber13" size="4" maxlength="4" Placeholder="9999">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">
-                    Can we leave a voicemail at this number? 
-                </label>
-                <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
-                    <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission1" value="353358909">Yes</label>
-                    <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission1" value="104430631">No</label>
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">
-                    Can we text this number? 
-                </label>
-                <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
-                    <label class="btn btn-light up-btns"><input type="radio" name="textPermission1" value="353358909">Yes</label>
-                    <label class="btn btn-light up-btns"><input type="radio" name="textPermission1" value="104430631">No</label>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">
-                    Home phone 
-                </label>
-                <div class="btn-group col-md-4" id="mainMobilePhone2">
-                    <input type="text" class="form-control" id="UPPhoneNumber21" pattern="[1-9]{1}[0-9]{2}" title="Only numbers are allowed." size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
-                    <input type="text" class="form-control" id="UPPhoneNumber22" pattern="[0-9]{3}" title="Only numbers are allowed." size="3" maxlength="3" Placeholder="999"> <span class="hyphen">-</span>
-                    <input type="text" class="form-control" id="UPPhoneNumber23" pattern="[0-9]{4}" title="Only numbers are allowed." size="4" maxlength="4" Placeholder="9999">
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">
-                    Can we leave a voicemail at this number? 
-                </label>
-                <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
-                    <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission2" value="353358909">Yes</label>
-                    <label class="btn btn-light up-btns"><input type="radio" name="voiceMailPermission2" value="104430631">No</label>
-                </div>
-            </div>
-            
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Preferred Email</label>
-                <input type="text" class="form-control col-md-4" id="UPEmail" title="Please enter a email address in this format: name@example.com." Placeholder="Enter preferred email"></br>
-            </div>
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Retype preferred Email</label>
-                <input type="text" class="form-control col-md-4" id="confirmUPEmail" title="Please enter a email address in this format: name@example.com." Placeholder="Retype preferred email"></br>
-            </div>
-            
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Additional Email</label>
-                <input type="text" class="form-control col-md-4" id="UPEmail2" title="Please enter a email address in this format: name@example.com." Placeholder="Enter additional email"></br>
-            </div>
-            <div id="multipleEmail1"></div>
-            <div id="multipleEmail2"></div>
-            <div class="form-group row">
-                <div class="col-md-4 offset-md-4" id="additionalEmailBtn">
-                    <button type="button" class="btn btn-light" id="addMoreEmail" title="Add more email">Add more <i class="fas fa-plus"></i></button>
-                </div>
-            </div>
-            
-            <div id="preferredEmailPhone"></div>
-
-            ${renderMailingAddress('', 1, true)}
-
-            <div class="form-group row">
-                <label class="col-md-4 col-form-label">Have you ever been diagnosed with cancer (other than non-melanoma skin cancer)?</label>
-                <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
-                    <label class="btn btn-light up-btns" id="UPCancer1Btn"><input type="radio" name="cancerHistory" id="UPCancer1" value="353358909">Yes</label>
-                    <label class="btn btn-light up-btns" id="UPCancer2Btn"><input type="radio" name="cancerHistory" id="UPCancer2" value="104430631">No</label>
-                </div>
-            </div>
-
-            <div id="cancerFollowUp"></div>
-
-            </br></br>
-            <div class="row">
-                <div class="ml-auto">
-                    <button type="submit" class="btn btn-primary save-data">Submit</button>
-                </div>
-            </div>
-        </form>
-        </br></br>
+    
     `;
     addYearsOptions();
     addEventNameConsistency(myData.data['471168198'], myData.data['736251808']);

@@ -4,7 +4,11 @@ import { initializeCanvas } from './consent.js'
 export const renderAgreements = async () => {
     showAnimation();
     const myData = await getMyData();
-    let template = '<div class="row"><h3>Consent to participate in Connect Cohort Study</h3></div>';
+    let template = `<div class="row setting-div">
+    <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+    
+    <h3>Consent to participate in Connect Cohort Study</h3>`;
     if(myData.code === 200 && myData.data['919254129'] !== undefined && myData.data['919254129'] === 353358909){
         template += `
             <div class="row">
@@ -37,6 +41,7 @@ export const renderAgreements = async () => {
     else{
         template += 'No agreement found!';
     }
+    template +=`</div><div class="col-lg-2"></div></div>`
     document.getElementById('root').innerHTML = template;
     addEventAgreementOptions();
     hideAnimation();

@@ -6,7 +6,7 @@ export const renderUserProfile = async () => {
     const siteId = myData.data ? myData.data['827220437'] : undefined;
     const mainContent = document.getElementById('root');
     mainContent.innerHTML = `
-        <div class="row">
+        <div class="row setting-div">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
                 <h2>User profile</h2>

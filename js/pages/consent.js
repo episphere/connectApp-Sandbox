@@ -6,7 +6,7 @@ export const consentTemplate = () => {
     return ` 
         <div class="row">
             <div class="col-lg-2"></div>
-            <div class="col-lg-8">Download consent form:&nbsp<a href="./consent_draft.pdf" title="Download consent form" data-toggle="tooltip" download="coonect_consent.pdf"><i class="fas fa-file-download"></i></a></div>
+            <div class="col-lg-8">Download consent form:&nbsp<a href="./consent_draft.pdf" title="Download consent form" data-toggle="tooltip" download="connect_consent.pdf"><i class="fas fa-file-download"></i></a></div>
             <div class="col-lg-2"></div>
         </div>
         <div class="row">

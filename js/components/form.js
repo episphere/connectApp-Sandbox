@@ -79,19 +79,6 @@ export const renderUserProfile = async () => {
                         <datalist id="yearsOption"></datalist>
                     </div>
                     
-                    <div class="form-group row">
-                        <label class="col-md-4 col-form-label">What was your biological sex assigned at birth? <span class="required">*</span> </br>
-                            reference links for user testing <a href="https://www.researchallofus.org/wp-content/themes/research-hub-wordpress-theme/media/2019/02/Basics.pdf" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
-                            <a href="https://transcare.ucsf.edu/guidelines/terminology" target="_blank"><i class="fas fa-external-link-alt"></i></a> 
-                            <a href="https://www.census.gov/content/dam/Census/library/working-papers/2018/adrm/rsm2018-05.pdf" target="_blank"><i class="fas fa-external-link-alt"></i></a>
-                        </label>
-                        <div class="btn-group btn-group-toggle col-md-4" id="radioGroup" data-toggle="buttons">
-                            <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="654207589">Male</label>
-                            <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="536341288">Female</label>
-                            <label class="btn btn-light up-btns"><input type="radio" name="UPRadio" value="576796184">Intersex or other</label>
-                        </div>
-                    </div>
-
                     <strong>Contact Information</strong>
                     <div class="form-group row">
                         <label class="col-md-4 col-form-label">
